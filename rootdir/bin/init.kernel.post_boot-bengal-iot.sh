@@ -477,3 +477,6 @@ case "$console_config" in
 		echo "Enable console config to $console_config"
 	;;
 esac
+
+setprop vendor.post_boot.parsed 1
+setprop vendor.powerhal.init 1

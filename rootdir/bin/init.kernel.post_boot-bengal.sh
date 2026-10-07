@@ -416,3 +416,6 @@ case "$console_config" in
 	;;
 esac
 
+
+setprop vendor.post_boot.parsed 1
+setprop vendor.powerhal.init 1

@@ -102,3 +102,14 @@ ro.boot.vendor.qspa.modem=enabled
 
 
 
+ro.product.marketname=Redmi 15 / POCO M7
+ro.infinity.soc=Snapdragon 685 4G
+ro.infinity.camera=50MP + 8MP
+debug.sf.enable_gl_backpressure=1
+debug.sf.early.app.duration=16666666
+debug.sf.early.sf.duration=16666666
+debug.sf.earlyGl.app.duration=16666666
+debug.sf.earlyGl.sf.duration=16666666
+debug.sf.use_phase_offsets_as_durations=1
+debug.sf.late.app.duration=16666666
+debug.sf.late.sf.duration=11500000

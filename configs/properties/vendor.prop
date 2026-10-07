@@ -171,19 +171,12 @@ persist.vendor.dpm.vndr.idletimer.mode=default
 drm.service.enabled=true
 
 # Display
-debug.egl.hw=0
 debug.mdpcomp.logs=0
 debug.sf.enable_hwc_vds=0
 debug.sf.latch_unsignaled=0
 debug.sf.auto_latch_unsignaled=0
 debug.sf.enable_transaction_tracing=false
-debug.sf.enable_advanced_sf_phase_offset=1
-debug.sf.high_fps_early_gl_phase_offset_ns=-5000000
-debug.sf.high_fps_early_phase_offset_ns=-5000000
-debug.sf.high_fps_late_app_phase_offset_ns=1000000
-debug.sf.high_fps_late_sf_phase_offset_ns=-5000000
 debug.sf.treat_170m_as_sRGB=1
-debug.sf.hw=0
 debug.sf.enable_egl_image_tracker=0
 persist.sys.sf.color_mode=0
 persist.sys.sf.color_saturation=1.0
@@ -368,3 +361,10 @@ ro.soc.model=SM6225
 # NB: ro.boot.vendor.qspa.modem moved to system.prop: it is bootloader_prop,
 # which ONLY core init may set (neverallow { domain -init } ... set); values
 # in vendor.prop are applied by vendor_init and get silently denied.
+debug.sf.early.app.duration=16666666
+debug.sf.early.sf.duration=16666666
+debug.sf.late.app.duration=16666666
+debug.sf.late.sf.duration=11500000
+debug.egl.hw=1
+debug.sf.hw=1
+debug.sf.enable_gl_backpressure=1

@@ -370,9 +370,6 @@ service startpktlog /system/vendor/bin/iwpriv wlan0 pktlog 2
     disabled
     oneshot
 
-    # Enable PowerHAL hint processing
-    setprop vendor.powerhal.init 1
-
 service stoppktlog /system/vendor/bin/iwpriv wlan0 pktlog 0
     class main
     user root
