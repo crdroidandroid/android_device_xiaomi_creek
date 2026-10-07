@@ -62,17 +62,6 @@ vendor.audio_hal.period_size=192
 vendor.voice.path.for.pcm.voip=true
 ro.vendor.audio.identify_low_end_device=false
 
-# Dolby DMS / DAX and MiSound
-ro.vendor.audio.misound.bluetooth.enable=true
-vendor.audio.dolby.ds2.enabled=false
-vendor.audio.dolby.ds2.hardbypass=false
-ro.vendor.dolby.dax.version=DAX3_3.8.5.20_r1
-ro.vendor.audio.dolby.dax.version=DAX3_3.8.5.20_r1
-ro.vendor.audio.dolby.dax.support=true
-ro.vendor.audio.dolby.eq.half=true
-ro.vendor.audio.dolby.surround.enable=false
-persist.vendor.audio.misound.disable=true
-
 # Audio CPU
 vendor.audio.cpu.sched=31
 vendor.audio.cpu.sched.cpus=8
@@ -134,7 +123,7 @@ ro.vendor.audio.game.mode=true
 # Bluetooth
 persist.bluetooth.a2dp_offload.disabled=true
 persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
-persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac-aptxadaptive 
+persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac-aptxadaptive
 persist.vendor.qcom.bluetooth.aac_frm_ctl.enabled=true
 persist.vendor.qcom.bluetooth.aac_vbr_ctl.enabled=true
 persist.vendor.qcom.bluetooth.a2dp_mcast_test.enabled=false
@@ -162,21 +151,23 @@ ro.crypto.allow_encrypt_override=true
 ro.crypto.metadata_init_delete_all_keys.enabled=true
 ro.crypto.volume.filenames_mode=aes-256-cts
 
-# DPM
-persist.vendor.dpm.vndr.feature=1
-persist.vendor.dpm.vndr.halservice.enable=1
-persist.vendor.dpm.vndr.idletimer.mode=default
-
-# DRM
-drm.service.enabled=true
-
 # Display
+debug.egl.hw=0
 debug.mdpcomp.logs=0
 debug.sf.enable_hwc_vds=0
 debug.sf.latch_unsignaled=0
 debug.sf.auto_latch_unsignaled=0
 debug.sf.enable_transaction_tracing=false
 debug.sf.treat_170m_as_sRGB=1
+debug.sf.enable_gl_backpressure=0
+debug.sf.early.app.duration=16666666
+debug.sf.early.sf.duration=16666666
+debug.sf.earlyGl.app.duration=16666666
+debug.sf.earlyGl.sf.duration=16666666
+debug.sf.use_phase_offsets_as_durations=1
+debug.sf.late.app.duration=16666666
+debug.sf.late.sf.duration=11500000
+debug.sf.hw=0
 debug.sf.enable_egl_image_tracker=0
 persist.sys.sf.color_mode=0
 persist.sys.sf.color_saturation=1.0
@@ -191,10 +182,6 @@ ro.surface_flinger.protected_contents=true
 ro.surface_flinger.use_color_management=true
 ro.surface_flinger.wcg_composition_dataspace=143261696
 ro.surface_flinger.clear_slots_with_set_layer_buffer=true
-# Enable SurfaceFlinger content-driven refresh rate switching. MIUI ships this
-# disabled because its own displayfeature service drives the panel rate; on
-# LineageOS nothing replaces it, so leaving it off locks media/UI to the lowest
-# allowed refresh rate.
 ro.surface_flinger.use_content_detection_for_refresh_rate=true
 ro.surface_flinger.enable_frame_rate_override=false
 ro.surface_flinger.uclamp.min=205
@@ -242,6 +229,25 @@ ro.vendor.whitepoint_calibration_enable=true
 ro.vendor.xiaomi.bl.poll=true
 sys.displayfeature_hidl=true
 
+# Dolby DMS / DAX and MiSound
+ro.vendor.audio.misound.bluetooth.enable=true
+vendor.audio.dolby.ds2.enabled=false
+vendor.audio.dolby.ds2.hardbypass=false
+ro.vendor.dolby.dax.version=DAX3_3.8.5.20_r1
+ro.vendor.audio.dolby.dax.version=DAX3_3.8.5.20_r1
+ro.vendor.audio.dolby.dax.support=true
+ro.vendor.audio.dolby.eq.half=true
+ro.vendor.audio.dolby.surround.enable=false
+persist.vendor.audio.misound.disable=true
+
+# DPM
+persist.vendor.dpm.vndr.feature=1
+persist.vendor.dpm.vndr.halservice.enable=1
+persist.vendor.dpm.vndr.idletimer.mode=default
+
+# DRM
+drm.service.enabled=true
+
 # Enable Incremental
 ro.incremental.enable=true
 
@@ -266,6 +272,18 @@ graphics.gpu.profiler.support=true
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
 ro.opengles.version=196610
+
+# IMS
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
+persist.dbg.wfc_avail_ovr=1
+persist.vendor.ims.no_stapa=1
+persist.vendor.vilte_support=1
+persist.vendor.viwifi_support=1
+persist.vendor.volte_support=1
+
+# IO Cgroups
+ro.vendor.iocgrp.config=1
 
 # Keystore
 ro.hardware.keystore_desede=true
@@ -317,6 +335,11 @@ persist.vendor.sensors.enable.bypass_worker=true
 persist.vendor.sensors.enable.rt_task=false
 persist.vendor.sensors.hal_trigger_ssr=false
 persist.vendor.sensors.support_direct_channel=false
+ro.vendor.sensors.xiaomi.udfps=true
+
+# Soc
+ro.soc.manufacturer=QTI
+ro.soc.model=SM6225
 
 # USB
 persist.sys.usb.config=none
@@ -330,15 +353,6 @@ vendor.usb.rndis.func.name=gsi
 vendor.usb.use_ffs_mtp=1
 vendor.usb.use_gadget_hal=0
 
-# IMS
-persist.dbg.volte_avail_ovr=1
-persist.dbg.vt_avail_ovr=1
-persist.dbg.wfc_avail_ovr=1
-persist.vendor.ims.no_stapa=1
-persist.vendor.vilte_support=1
-persist.vendor.viwifi_support=1
-persist.vendor.volte_support=1
-
 # Wi-Fi
 ro.hardware.wlan.dbs=0
 ro.hardware.wlan.mimo=0
@@ -349,22 +363,6 @@ wifi.aware.interface=wifi-aware0
 # Zygote
 zygote.critical_window.minute=10
 
-# Sensors
-ro.vendor.sensors.xiaomi.udfps=true
-
-# IO Cgroups
-ro.vendor.iocgrp.config=1
-
-# Soc
-ro.soc.manufacturer=QTI
-ro.soc.model=SM6225
 # NB: ro.boot.vendor.qspa.modem moved to system.prop: it is bootloader_prop,
 # which ONLY core init may set (neverallow { domain -init } ... set); values
 # in vendor.prop are applied by vendor_init and get silently denied.
-debug.sf.early.app.duration=16666666
-debug.sf.early.sf.duration=16666666
-debug.sf.late.app.duration=16666666
-debug.sf.late.sf.duration=11500000
-debug.egl.hw=1
-debug.sf.hw=1
-debug.sf.enable_gl_backpressure=1
