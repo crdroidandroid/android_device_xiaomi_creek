@@ -13,11 +13,18 @@ ro.bluetooth.wipower=false
 # Brightness Curve
 persist.sys.brightness.low.gamma=true
 
+# Camera
+persist.sys.cam.skip_detach_image=true
+
 # Charger
 ro.charger.enable_suspend=1
 
 # CNE
 persist.vendor.cne.feature=1
+
+# Deep Sleep
+pm.sleep_mode=1
+vendor.post_boot.parsed=1s
 
 # Device Information
 ro.product.marketname=Redmi 15 / POCO M7
@@ -37,6 +44,8 @@ persist.debug.ftrace_events_disable=Yes
 ro.vendor.qti.va_aosp.support=1
 
 # HWUI
+debug.hwui.use_hint_manager=true
+debug.hwui.target_cpu_time_percent=30
 debug.sf.enable_hwc_vds=0
 debug.sf.latch_unsignaled=0
 ro.hwui.texture_cache_size=72
@@ -72,11 +81,17 @@ media.stagefright.enable-qcp=true
 media.stagefright.enable-scan=true
 media.stagefright.thumbnail.prefer_hw_codecs=true
 
+# Memory Tagging
+persist.arm64.memtag.system_server=off
+
 # Multi-Gen LRU
 persist.device_config.mglru_native.lru_gen_config=core
 
 # NTP
 persist.backup.ntpServer="0.pool.ntp.org"
+
+# QSPA
+ro.boot.vendor.qspa.modem=enabled
 
 # Radio
 DEVICE_PROVISIONED=1
@@ -97,10 +112,3 @@ ro.soc.manufacturer=QTI
 
 # SSR
 persist.vendor.ssr.restart_level=ALL_ENABLE
-
-# QSPA: the stock ims.apk (org.codeaurora.ims) carries an RRO gated on this
-# boot property; when it is absent PackageManager skips the whole package at
-# scan, which removes the only ImsService (no VoLTE/VoWiFi). It is
-# bootloader_prop, so it must live in system.prop: only core init may set it
-# (vendor.prop would be denied by the neverallow on vendor_init).
-ro.boot.vendor.qspa.modem=enabled
