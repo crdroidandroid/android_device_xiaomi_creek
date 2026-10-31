@@ -17,3 +17,22 @@ allow system_app hal_health_default:binder call;
 allow system_app hal_nfc_default:binder call;
 allow system_app hal_power_default:binder call;
 allow system_app vendor_hal_keymint_qti:binder call;
+
+# XiaomiParts: charging control (qcom-battery/input_suspend) + GameBar CPU usage
+allow system_app vendor_sysfs_battery_supply:dir search;
+allow system_app vendor_sysfs_battery_supply:file rw_file_perms;
+allow system_app proc_stat:file { read open getattr };
+
+# XiaomiParts-ext: Core Control (cpuN/online), Auto HBM (backlight), Touch Sampling (report rate)
+allow system_app sysfs_devices_system_cpu:dir search;
+allow system_app sysfs_devices_system_cpu:file rw_file_perms;
+allow system_app sysfs_leds:dir search;
+allow system_app sysfs_leds:file rw_file_perms;
+allow system_app vendor_sysfs_graphics:dir search;
+allow system_app vendor_sysfs_graphics:file rw_file_perms;
+allow system_app vendor_sysfs_touch_rate:file rw_file_perms;
+
+# XiaomiParts: ColorService -> displayfeature HIDL
+hwbinder_use(system_app)
+allow system_app vendor_hal_displayfeature_xiaomi_hwservice:hwservice_manager find;
+allow system_app vendor_hal_displayfeature_xiaomi_default:binder { call transfer };

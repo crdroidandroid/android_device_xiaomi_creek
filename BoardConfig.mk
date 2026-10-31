@@ -390,3 +390,11 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY  := true
 
 # Fix: Create directory KERNEL_OBJ/usr for some modules
 $(shell mkdir -p $(OUT_DIR)/target/product/$(TARGET_DEVICE)/obj/KERNEL_OBJ/usr)
+
+# MiuiCamera
+TARGET_SHIPS_MIUICAMERA ?= true
+
+ifeq ($(TARGET_SHIPS_MIUICAMERA),true)
+-include device/xiaomi/creek-miuicamera/BoardConfig.mk
+endif
+

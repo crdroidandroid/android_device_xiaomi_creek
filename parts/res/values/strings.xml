@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2020-2022 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+
+    <!-- Xiaomi Parts -->
+    <string name="app_name">Xiaomi Parts</string>
+
+    <!-- Thermal Profiles -->
+    <string name="thermal_title">Thermal profiles</string>
+    <string name="thermal_enable">Use thermal profiles</string>
+    <string name="thermal_summary">Per-app thermal profile configuration</string>
+    <string name="thermal_loading">Loading...</string>
+    <string name="thermal_default">Default</string>
+    <string name="thermal_benchmark">Benchmark</string>
+    <string name="thermal_browser">Browser</string>
+    <string name="thermal_camera">Camera</string>
+    <string name="thermal_dialer">Dialer</string>
+    <string name="thermal_gaming">Gaming</string>
+    <string name="thermal_navigation">Navigation</string>
+    <string name="thermal_streaming">Streaming</string>
+    <string name="thermal_video">Video</string>
+    <string name="thermal_reset">Reset to defaults</string>
+    <string name="thermal_reset_message">Are you sure you want to reset thermal profile for all apps?</string>
+
+    <!-- XiaomiParts Category -->
+    <string name="parts_category_display">Display</string>
+    <string name="parts_category_audio">Audio</string>
+    <string name="parts_category_about">About Me</string>
+
+    <!-- Title for the High Touch Responsiveness feature -->
+    <string name="htsr_title">Enhanced Touch Responsiveness</string>
+
+    <!-- Title for enabling High Touch Polling Rate -->
+    <string name="htsr_enable_title">Enable High Touch Polling Rate</string>
+
+    <!-- Description for High Touch Polling Rate -->
+    <string name="htsr_enable_summary">
+        Boosts the touch polling rate to reduce input latency, delivering a smoother and more responsive user experience.
+    </string>
+
+    <!-- Per-app touch boost -->
+    <string name="htsr_auto_enable_title">Auto-enable for selected apps</string>
+    <string name="htsr_auto_enable_summary">Automatically enable touch boost for selected foreground apps</string>
+    <string name="htsr_choose_apps_title">Choose boosted apps</string>
+    <string name="htsr_choose_apps_summary">Select apps that should use high touch polling rate</string>
+    <string name="htsr_app_added">%1$s added.</string>
+    <string name="touch_sampling_tile_label">Touch Boost</string>
+    <string name="touch_sampling_mode_title">High Touch Polling Mode</string>
+    <string name="touch_sampling_mode_notification">High Touch Polling Rate is now active. This reduces touch input latency but may increase battery consumption</string>
+
+    <!-- Core Control -->
+    <string name="core_control_title">Core Control</string>
+    <string name="core_control_summary">Manually enable or disable individual CPU cores</string>
+    <string name="cit_title">Xiaomi CIT</string>
+    <string name="cit_summary">Hardware test and calibration</string>
+    <string name="cit_not_installed">Xiaomi CIT is not installed</string>
+    <string name="core_control_description">Advanced CPU control. Turning off cores may save battery or thermal load, but may affect performance and stability.\n\nAt least two little cores must remain online at all times.</string>
+    <string name="core_0">Core 0 (Little)</string>
+    <string name="core_1">Core 1 (Little)</string>
+    <string name="core_2">Core 2 (Little)</string>
+    <string name="core_3">Core 3 (Little)</string>
+    <string name="core_4">Core 4 (Big)</string>
+    <string name="core_5">Core 5 (Big)</string>
+    <string name="core_6">Core 6 (Big)</string>
+    <string name="core_7">Core 7 (Prime)</string>
+
+    <!-- Charging Control -->
+    <string name="charging_control_title">Charging Control</string>
+    <string name="charging_limit_title">Stop at Percentage</string>
+    <string name="charging_limit_summary">Current limit: %1$d%%</string>
+    <string name="charging_power_category">Charging speed</string>
+    <string name="charging_power_title">Power level</string>
+    <string name="charging_control_summary">Improve battery lifespan by limiting Charge Percentage</string>
+
+    <!-- GameBar Overlay -->
+    <string name="game_bar_title">Game Bar</string>
+    <string name="game_bar_summary">Enable the system overlay (FPS, Temp, etc.)</string>
+    <string name="overlay_permission_required">Overlay permission is required</string>
+    <string name="overlay_permission_granted">Overlay permission granted</string>
+    <string name="overlay_permission_denied">Overlay permission denied</string>
+    <string name="game_bar_tile_label">Game Bar</string>
+    <string name="game_bar_tile_description">Toggle the game overlay</string>
+
+    <!-- GameBar preferences -->
+    <string name="game_bar_enable_title">Enable Game Bar Overlay</string>
+    <string name="game_bar_category_features">Overlay Features</string>
+    <string name="game_bar_fps_title">FPS Overlay</string>
+    <string name="game_bar_fps_summary">Show current FPS on screen</string>
+    <string name="game_bar_temp_title">Device Temperature</string>
+    <string name="game_bar_temp_summary">Show device (battery) temperature</string>
+    <string name="game_bar_cpu_usage_title">CPU Usage</string>
+    <string name="game_bar_cpu_usage_summary">Show current CPU usage percentage</string>
+    <string name="game_bar_cpu_clock_title">CPU Clock Speeds</string>
+    <string name="game_bar_cpu_clock_summary">Show current CPU clock speeds for each core</string>
+    <string name="game_bar_cpu_temp_title">CPU Temperature</string>
+    <string name="game_bar_cpu_temp_summary">Show CPU temperature (thermal_zone0)</string>
+    <string name="game_bar_ram_title">RAM Usage</string>
+    <string name="game_bar_ram_summary">Show current RAM usage in MB</string>
+    <string name="game_bar_gpu_temp_title">GPU Temperature</string>
+    <string name="game_bar_gpu_temp_summary">Show current GPU temperature</string>
+    <string name="game_bar_category_fps_method">FPS Measurement Method</string>
+    <string name="game_bar_fps_method_title">Select FPS Method</string>
+    <string name="game_bar_fps_method_summary">Choose between the New API method (default) and Legacy Sysfs</string>
+    <string name="game_bar_category_customization">Customization</string>
+    <string name="game_bar_text_size_title">Text Size</string>
+    <string name="game_bar_text_size_summary">Adjust the size of overlay text</string>
+    <string name="game_bar_bg_alpha_title">Background Transparency</string>
+    <string name="game_bar_bg_alpha_summary">Adjust the transparency of the background</string>
+    <string name="game_bar_corner_radius_title">Overlay Corner Radius</string>
+    <string name="game_bar_corner_radius_summary">Adjust how rounded the overlay corners should be</string>
+    <string name="game_bar_padding_title">Overlay Padding</string>
+    <string name="game_bar_padding_summary">Adjust the space around the stats</string>
+    <string name="game_bar_item_spacing_title">Item Spacing</string>
+    <string name="game_bar_item_spacing_summary">Adjust spacing between overlay lines</string>
+    <string name="game_bar_update_interval_title">Update Interval</string>
+    <string name="game_bar_update_interval_summary">Set how often the overlay values update</string>
+    <string name="game_bar_title_color_title">Stat Title Color</string>
+    <string name="game_bar_title_color_summary">Color for \'FPS\', \'Temp\', \'CPU\', etc. text</string>
+    <string name="game_bar_value_color_title">Stat Value Color</string>
+    <string name="game_bar_value_color_summary">Color for numeric stats (e.g., \'29\', \'32.0°C\')</string>
+    <string name="game_bar_position_title">Overlay Position</string>
+    <string name="game_bar_position_summary">Select the position of the overlay on screen</string>
+    <string name="game_bar_format_title">Overlay Format</string>
+    <string name="game_bar_format_summary">Choose between Full or Minimal display</string>
+    <string name="game_bar_category_split">Split Config</string>
+    <string name="game_bar_split_mode_title">Split Mode</string>
+    <string name="game_bar_split_mode_summary">Choose Side-by-Side or Stacked arrangement</string>
+    <string name="game_bar_category_gestures">Overlay Gesture Controls</string>
+    <string name="game_bar_single_tap_title">Enable Single Tap to Toggle</string>
+    <string name="game_bar_single_tap_summary">Tap once to switch between full and minimal overlay formats</string>
+    <string name="game_bar_doubletap_title">Enable Double Tap to Capture</string>
+    <string name="game_bar_doubletap_summary">Double-tap overlay to start/stop capture logs</string>
+    <string name="game_bar_longpress_enable_title">Enable Long Press</string>
+    <string name="game_bar_longpress_enable_summary">Long-press overlay to access Game Bar settings</string>
+    <string name="game_bar_longpress_timeout_title">Long Press Duration</string>
+    <string name="game_bar_longpress_timeout_summary">Set the duration required to long-press the overlay</string>
+    <string name="game_bar_category_capture">Capture Logs</string>
+    <string name="game_bar_capture_start_title">Start Logging</string>
+    <string name="game_bar_capture_start_summary">Begin capturing FPS and performance data in real-time</string>
+    <string name="game_bar_capture_stop_title">Stop Logging</string>
+    <string name="game_bar_capture_stop_summary">Stop capturing FPS and performance data in real-time</string>
+    <string name="game_bar_capture_export_title">Export Game Bar Log Data</string>
+    <string name="game_bar_capture_export_summary">Save the captured FPS and performance data as a CSV file</string>
+    <string name="game_bar_category_auto">Auto Enable Game Bar</string>
+    <string name="game_bar_auto_enable_title">Auto-Enable Game Bar for Selected Apps</string>
+    <string name="game_bar_auto_enable_summary">If turned on, selected apps will auto-enable Game Bar even if the main switch is off</string>
+    <string name="game_bar_app_selector_title">Select Apps</string>
+    <string name="game_bar_app_selector_summary">Add apps that should auto-enable Game Bar</string>
+
+    <!-- Xiaomi Parts Hub -->
+    <string name="xiaomi_parts_title">Xiaomi Parts</string>
+    <string name="xiaomi_parts_summary">Game Bar, Touch Sampling, Core Control and other features</string>
+    <string name="parts_settings_category_title">General</string>
+
+    <!-- Per-app upscale -->
+    <string name="upscale_summary">Set upscaling for specific applications</string>
+    <string name="upscale_title">Per-App Resolution</string>
+    <string name="upscale_default">Default</string>
+    <string name="upscale_480p">480p</string>
+    <string name="upscale_540p">540p</string>
+    <string name="upscale_720p">720p</string>
+
+    <!-- System-wide resolution screen -->
+    <string name="system_resolution_title">Display Resolution</string>
+    <!-- %1$s will be replaced with e.g. "1268×2756 @ 480 dpi" -->
+    <string name="system_resolution_summary">Current: %1$s</string>
+    <string name="system_resolution_summary_setting">Select system-wide display resolution</string>
+    <string name="system_resolution_note">Lower resolution reduces GPU load and may extend battery life.
+        Changes take effect immediately. If the screen becomes unusable, reboot to recover.</string>
+
+    <!-- Resolution labels (shared) -->
+    <string name="resolution_default">Default</string>
+    <string name="resolution_480p">480p</string>
+    <string name="resolution_540p">540p</string>
+    <string name="resolution_720p">720p</string>
+    <string name="resolution_custom">Custom</string>
+
+    <!-- Custom resolution dialog -->
+    <string name="custom_resolution_dialog_title">Custom Resolution</string>
+    <string name="custom_resolution_section_title">Custom resolution settings</string>
+    <string name="custom_resolution_width_label">Width (px)</string>
+    <string name="custom_resolution_height_label">Height (px)</string>
+    <string name="custom_resolution_density_label">Density (dpi)</string>
+    <!-- %1$d = native value shown as hint -->
+    <string name="custom_resolution_width_hint">Native: %1$d</string>
+    <string name="custom_resolution_height_hint">Native: %1$d</string>
+    <string name="custom_resolution_density_hint">Native: %1$d dpi</string>
+    <string name="custom_resolution_note">Tip: density ≈ (width / native_width) × native_dpi.
+        Min width: 240 px · Min height: 320 px · Min density: 80 dpi.</string>
+    <string name="custom_resolution_invalid">Invalid values — please enter positive integers within bounds.</string>
+    <string name="custom_resolution_reset">Reset to native</string>
+
+    <!-- QS Tile -->
+    <string name="resolution_qs_label">Resolution</string>
+
+    <!-- Generic dialog buttons (used by resolution fragments) -->
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Clear Speaker -->
+    <string name="clear_speaker_title">Clear speaker</string>
+    <string name="clear_speaker_summary">Play a 30-second audio to clear the speaker</string>
+    <string name="clear_speaker_description">Run this feature once or twice if you find that your speaker is lightly blocked by dust. Set media volume to maximum.\n\nIf the speaker is blocked heavily, run this feature 2-5 times while shaking your device with the speaker facing downwards.</string>
+
+    <!-- Auto HBM -->
+    <string name="auto_hbm_title">Automatic High Brightness Mode (HBM)</string>
+    <string name="auto_hbm_main_switch_title">Use automatic HBM</string>
+    <string name="tile_auto_hbm">Auto HBM</string>
+    <string name="tile_hbm_on">Enabled</string>
+    <string name="tile_hbm_off">Disabled</string>
+    <string name="tile_hbm">HBM</string>
+    <string name="tile_hbm_unavailable">HBM Unavailable</string>
+    <string name="tile_auto_hbm_or_brightness_enabled">Auto HBM or Auto Brightness is enabled</string>
+    <string name="hbm_mode_title">High Brightness Mode</string>
+    <string name="hbm_mode_notification">High Brightness Mode is now activated. Long time usage may damage your display.</string>
+    <string name="auto_hbm_summary">Automatically enable high brightness mode based on sunlight intensity (lux)</string>
+    <string name="auto_hbm_threshold_title">Light threshold</string>
+    <string name="auto_hbm_threshold_summary">Define the light intensity threshold in lux units at which HBM is activated</string>
+    <string name="auto_hbm_enable_time_title">Enable time</string>
+    <string name="auto_hbm_enable_time_summary">Duration in seconds that the light threshold must be continuously met to activate HBM</string>
+    <string name="auto_hbm_disable_time_title">Disable time</string>
+    <string name="auto_hbm_disable_time_summary">Duration in seconds for which HBM is deactivated if the light threshold falls below the set level</string>
+    <string name="tile_add">Add tile</string>
+
+    <!-- About Me -->
+    <string name="about_me_title">About me</string>
+    <string name="about_me_summary">Developer, support and donations</string>
+    <string name="about_me_dev_category">Developer</string>
+    <string name="about_me_dev_title">Mnskkyy</string>
+    <string name="about_me_dev_summary">Newbie Developer</string>
+    <string name="about_me_links_category">Links</string>
+    <string name="about_me_contact_title">Channel Update</string>
+    <string name="about_me_contact_summary">https://t.me/Aarchivee404</string>
+    <string name="about_me_donate_title">SosiaBuzz</string>
+    <string name="about_me_donate_summary">https://sociabuzz.com/mnzzprjkt/tribe</string>
+    <string name="about_me_donate2_title">Saweria</string>
+    <string name="about_me_donate2_summary">https://saweria.co/MnzzProject</string>
+
+    <string name="pq_gpu_comp_title">Force GPU composition</string>
+    <string name="pq_gpu_comp_summary">Bypasses the hardware composer. Fixes faded video colors in some apps, but uses more battery</string>
+    <string name="pq_write_failed">Failed to apply setting</string>
+
+    <!-- Per-app refresh rate -->
+    <string name="refresh_title">Per-app refresh rate</string>
+    <string name="refresh_summary">Set the maximum refresh rate for a specific application</string>
+    <string name="refresh_default">Default</string>
+    <string name="refresh_standard">60Hz</string>
+    <string name="refresh_extreme">120Hz</string>
+
+    <!-- Charge bypass strings -->
+    <string name="charge_bypass_title">Bypass charging</string>
+    <string name="charge_bypass_summary">Enable direct charging, bypassing battery</string>
+    <string name="charge_bypass_warning">Warning: Bypass charging may cause increased device temperature or battery damage. Use with caution.</string>
+    <string name="charge_bypass_unavailable">Bypass charging is not supported on this device</string>
+
+</resources>

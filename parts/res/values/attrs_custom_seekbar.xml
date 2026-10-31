@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/values/ alá — CSAK ha a CustomSeekBarPreference-t innen veszed,
+     és a klee fában nincs már ilyen declare-styleable. -->
+<resources>
+    <declare-styleable name="CustomSeekBarPreference">
+        <attr name="units" format="string|reference" />
+        <attr name="interval" format="integer" />
+        <attr name="continuousUpdates" format="boolean" />
+    </declare-styleable>
+</resources>

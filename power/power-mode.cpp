@@ -93,7 +93,7 @@ bool setDeviceSpecificMode(Mode type, bool enabled) {
             // Jalur utama creek: /proc/tp_gesture (permission + sepolicy sudah disiapkan
             // di init.target.rc dan hal_power_default.te)
             if (access(kTpGestureNode, W_OK) == 0) {
-                if (android::base::WriteStringToFile(enabled ? "1" : "0", kTpGestureNode)) {
+                if (::android::base::WriteStringToFile(enabled ? "1" : "0", kTpGestureNode)) {
                     return true;
                 }
                 LOG(WARNING) << "Failed to write " << kTpGestureNode << ", falling back to input event";

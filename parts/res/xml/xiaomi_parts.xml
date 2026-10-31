@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:title="@string/parts_settings_category_title">
+
+        <Preference
+            android:key="parts_game_bar"
+            android:title="@string/game_bar_title"
+            android:summary="@string/game_bar_summary"
+            android:icon="@drawable/ic_gamebar" />
+
+        <Preference
+            android:key="parts_core_control"
+            android:title="@string/core_control_title"
+            android:summary="@string/core_control_summary"
+            android:icon="@drawable/ic_core_control" />
+
+        <Preference
+            android:key="parts_charging_control"
+            android:title="@string/charging_control_title"
+            android:summary="@string/charging_control_summary"
+            android:icon="@drawable/ic_charging_control" />
+
+        <Preference
+            android:key="parts_thermal_profiles"
+            android:title="@string/thermal_title"
+            android:summary="@string/thermal_summary"
+            android:icon="@drawable/ic_thermal" />
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/parts_category_display"
+        app:allowDividerAbove="true"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            android:key="parts_per_app_refresh_rate"
+            android:title="@string/refresh_title"
+            android:summary="@string/refresh_summary"
+            android:icon="@drawable/ic_refresh_rate" />
+
+        <Preference
+            android:key="parts_touch_sampling"
+            android:title="@string/htsr_title"
+            android:summary="@string/htsr_enable_summary"
+            android:icon="@drawable/ic_touch_sampling_tile" />
+
+        <Preference
+            android:key="parts_auto_hbm"
+            android:title="@string/auto_hbm_title"
+            android:summary="@string/auto_hbm_summary"
+            android:icon="@drawable/ic_auto_hbm" />
+
+        <Preference
+            android:key="parts_system_resolution"
+            android:title="@string/system_resolution_title"
+            android:summary="@string/system_resolution_summary_setting"
+            android:icon="@drawable/ic_resolution" />
+
+        <Preference
+            android:key="parts_per_app_resolution"
+            android:title="@string/upscale_title"
+            android:summary="@string/upscale_summary"
+            android:icon="@drawable/ic_resolution_custom" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/parts_category_audio"
+        app:allowDividerAbove="true"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            android:key="parts_clear_speaker"
+            android:title="@string/clear_speaker_title"
+            android:summary="@string/clear_speaker_summary"
+            android:icon="@drawable/ic_clear_speaker" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/parts_category_about"
+        app:allowDividerAbove="true"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            android:key="parts_about_me"
+            android:title="@string/about_me_title"
+            android:summary="@string/about_me_summary"
+            android:icon="@drawable/ic_about_dev" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
