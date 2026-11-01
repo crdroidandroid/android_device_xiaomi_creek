@@ -47,3 +47,6 @@
 
 /vendor/bin/hw/android\.hardware\.sensors-service\.xiaomi-multihal  u:object_r:hal_sensors_default_exec:s0
 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/mi_display/disp-DSI-0/dynamic_fps                                        u:object_r:vendor_sysfs_graphics:s0
+
+# Xiaomi MIUI Camera algorithm engine
+/(vendor|system/vendor)/lib64/libmialgoengine\.so u:object_r:vendor_mialgoengine_file:s0

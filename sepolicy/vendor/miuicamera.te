@@ -1,0 +1,11 @@
+# Xiaomi MIUI Camera compatibility for API-specific platform app domains.
+# platform_app_all covers platform_app and platform_app_36.
+
+# DisplayFeature property access
+get_prop(platform_app_all, vendor_displayfeature_prop)
+
+# Xiaomi Camera Post Processing service discovery
+allow platform_app_all vendor_hal_camerapostproc_xiaomi_hwservice:hwservice_manager find;
+
+# Restrict algorithm library access to the MIUI Camera blob only
+allow platform_app_all vendor_mialgoengine_file:file { getattr map open read execute };
