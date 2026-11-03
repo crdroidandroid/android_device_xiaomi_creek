@@ -2,7 +2,6 @@
 ro.audio.ihaladaptervendorextension_enabled=true
 
 # Dalvik
-dalvik.vm.dex2oat64.enabled=true
 
 # Bluetooth
 bluetooth.device.class_of_device=90,2,12
@@ -23,7 +22,6 @@ persist.vendor.dpm.feature=11
 persist.sys.gps.fence=true
 
 # Graphics
-ro.surface_flinger.supports_background_blur=0
 
 # Media
 vendor.media.target_variant=_khaje_v0

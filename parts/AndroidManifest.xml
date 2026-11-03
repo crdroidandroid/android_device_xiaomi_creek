@@ -40,7 +40,6 @@
         </service>
 
         <!-- Services -->
-        <service android:name=".battery.ChargingLimitService" />
 
         <!-- Battery/Charging Activity — Get called by XiaomiPartsFragment -->
         <activity

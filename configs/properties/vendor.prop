@@ -209,13 +209,8 @@ sys.displayfeature_hidl=true
 
 # Dolby DMS / DAX and MiSound
 ro.vendor.audio.misound.bluetooth.enable=true
-vendor.audio.dolby.ds2.enabled=false
-vendor.audio.dolby.ds2.hardbypass=false
-ro.vendor.dolby.dax.version=DAX3_3.8.5.20_r1
 ro.vendor.audio.dolby.dax.version=DAX3_3.8.5.20_r1
-ro.vendor.audio.dolby.dax.support=true
 ro.vendor.audio.dolby.eq.half=true
-ro.vendor.audio.dolby.surround.enable=false
 persist.vendor.audio.misound.disable=true
 
 # Enable Incremental

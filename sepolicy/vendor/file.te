@@ -15,4 +15,3 @@ type vendor_mac_vendor_data_file, data_file_type, file_type, mlstrustedobject;
 type vendor_sysfs_touch_rate, fs_type, sysfs_type;
 
 # Xiaomi MIUI Camera algorithm engine
-type vendor_mialgoengine_file, file_type, vendor_file_type;

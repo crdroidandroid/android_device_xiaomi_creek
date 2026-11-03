@@ -1,6 +1,5 @@
 /(vendor|system/vendor)/lib(64)?/libipebpsstriping\.so                         u:object_r:same_process_hal_file:s0
 
-/(vendor|system/vendor)/bin/hw/vendor\.dolby\.hardware\.dms@2\.0-service       u:object_r:hal_dms_default_exec:s0
 
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power-service-qti           u:object_r:hal_power_default_exec:s0
 
@@ -50,3 +49,5 @@
 
 # Xiaomi MIUI Camera algorithm engine
 /(vendor|system/vendor)/lib64/libmialgoengine\.so u:object_r:vendor_mialgoengine_file:s0
+
+/vendor/lib64/libmialgoengine\.so u:object_r:vendor_public_lib_file:s0

@@ -8,4 +8,6 @@ get_prop(platform_app_all, vendor_displayfeature_prop)
 allow platform_app_all vendor_hal_camerapostproc_xiaomi_hwservice:hwservice_manager find;
 
 # Restrict algorithm library access to the MIUI Camera blob only
-allow platform_app_all vendor_mialgoengine_file:file { getattr map open read execute };
+
+# MIUI Camera algorithm engine
+type vendor_mialgoengine_file, vendor_file_type, file_type;
