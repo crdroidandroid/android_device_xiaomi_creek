@@ -68,6 +68,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.low_ram=false
 
+# Dexpreopt: compile core UI apps fully (speed) + system_server
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    Settings \
+    SystemUI \
+    TrebuchetQuickStep \
+    Launcher3QuickStep
+
+PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.game_default_frame_rate_override=144
 

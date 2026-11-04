@@ -81,9 +81,7 @@ BOARD_KERNEL_CMDLINE := \
     disable_dma32=on \
     rcu_nocbs=all \
     rcutree.enable_rcu_lazy=1 \
-    rcu_normal=1 \
-    rcu_expedited=1 \
-    kasan=off \
+    rcupdate.rcu_expedited=1 \
     bootinfo.fingerprint=$(LINEAGE_VERSION) \
     swinfo.fingerprint=$(LINEAGE_VERSION)
 
@@ -198,7 +196,7 @@ TARGET_USERIMAGES_USE_F2FS              := true
 BOARD_EROFS_PAGESIZE                    := 4096
 BOARD_RAMDISK_USE_LZ4                   := true
 BOARD_EROFS_COMPRESSOR                  := lz4
-BOARD_EROFS_PCLUSTER_SIZE               := 262144
+BOARD_EROFS_PCLUSTER_SIZE               := 16384
 BOARD_EROFS_COMMAND_LINE                := -zlz4hc,9 -E legacy-compress
 
 
