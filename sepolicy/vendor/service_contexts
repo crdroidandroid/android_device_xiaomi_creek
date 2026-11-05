@@ -1,2 +1,5 @@
 # Vendor-extension AIDL interface published by android.hardware.nfc-service.nxp
 vendor.nxp.nxpnfc_aidl.INxpNfc/default  u:object_r:vendor_nxpnfc_service:s0
+
+# Xiaomi MiSys AIDL interface (used by MIUI Camera)
+vendor.xiaomi.hardware.misys.common.IMiSysImpl/default u:object_r:vendor_misys_service:s0
