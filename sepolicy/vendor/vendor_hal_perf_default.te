@@ -5,4 +5,3 @@ allow vendor_hal_perf_default surfaceflinger:dir r_dir_perms;
 allow vendor_hal_perf_default surfaceflinger:file r_file_perms;
 allow vendor_hal_perf_default surfaceflinger:process setsched;
 
-allow vendor_hal_perf_default self:capability dac_read_search;

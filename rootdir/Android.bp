@@ -82,8 +82,6 @@ sh_binary {
 }
 
 sh_binary {
-
-sh_binary {
     name: "init.kernel.post_boot-bengal.sh",
     src: "bin/init.kernel.post_boot-bengal.sh",
     vendor: true,

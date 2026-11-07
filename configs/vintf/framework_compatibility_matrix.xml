@@ -1095,4 +1095,12 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.misys.common</name>
+        <version>2</version>
+        <interface>
+            <name>IMiSysImpl</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </compatibility-matrix>

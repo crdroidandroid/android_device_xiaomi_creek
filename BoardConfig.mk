@@ -396,3 +396,4 @@ ifeq ($(TARGET_SHIPS_MIUICAMERA),true)
 -include device/xiaomi/creek-miuicamera/BoardConfig.mk
 endif
 
+TARGET_BOARD_SUFFIX := _515

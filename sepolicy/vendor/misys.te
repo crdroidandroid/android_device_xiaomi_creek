@@ -1,27 +1,9 @@
-# Xiaomi MiSys HAL services (vendor.xiaomi.hardware.misys@1.0 - @4.0)
-type vendor_misys, domain;
-typeattribute vendor_misys halserverdomain;
-type vendor_misys_exec, exec_type, vendor_file_type, file_type;
-init_daemon_domain(vendor_misys)
-
-type vendor_misys_hwservice, hwservice_manager_type;
+# Xiaomi MiSys AIDL service used by MIUI Camera
 type vendor_misys_service, service_manager_type;
 
-hwbinder_use(vendor_misys)
-binder_use(vendor_misys)
-add_hwservice(vendor_misys, vendor_misys_hwservice)
-allow vendor_misys vendor_misys_service:service_manager { add find };
+# MiSys HAL publishes the AIDL service
+allow hal_misys_default vendor_misys_service:service_manager add;
 
-# Root/system service writing to persist (dirs created by .rc)
-allow vendor_misys self:capability { dac_override dac_read_search };
-allow vendor_misys { mnt_vendor_file persist_file }:dir create_dir_perms;
-allow vendor_misys { mnt_vendor_file persist_file }:file create_file_perms;
-
-# Load HAL libs from /vendor
-allow vendor_misys vendor_file:dir r_dir_perms;
-allow vendor_misys vendor_file:file rx_file_perms;
-
-# MIUI Camera (platform app) -> MiSys
+# MIUI Camera accesses the AIDL service
 allow platform_app_all vendor_misys_service:service_manager find;
-allow platform_app_all vendor_misys_hwservice:hwservice_manager find;
-binder_call(platform_app_all, vendor_misys)
+binder_call(platform_app_all, hal_misys_default)

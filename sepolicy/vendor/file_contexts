@@ -53,4 +53,3 @@
 /vendor/lib64/libmialgoengine\.so u:object_r:vendor_public_lib_file:s0
 
 # Xiaomi MiSys HAL services
-/(vendor|system/vendor)/bin/hw/vendor\.xiaomi\.hardware\.misys@[0-9]\.[0-9]-service u:object_r:vendor_misys_exec:s0

@@ -732,4 +732,6 @@ PRODUCT_PACKAGES += \
 
 # Xiaomi MiSys AIDL interface (used by MIUI Camera)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/vintf/vendor.xiaomi.hardware.misys.common.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/vendor.xiaomi.hardware.misys.common.xml
+
+DEVICE_MANIFEST_FILE += \
+    $(DEVICE_PATH)/configs/vintf/vendor.xiaomi.hardware.misys.common.xml
