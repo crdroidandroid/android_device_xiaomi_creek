@@ -30,7 +30,6 @@
             android:summary="@string/thermal_summary"
             android:icon="@drawable/ic_thermal" />
 
-
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -76,6 +75,12 @@
         app:iconSpaceReserved="false">
 
         <Preference
+            android:key="parts_dolby"
+            android:title="@string/dolby_title"
+            android:summary="@string/dolby_summary"
+            android:icon="@drawable/ic_dolby" />
+
+        <Preference
             android:key="parts_clear_speaker"
             android:title="@string/clear_speaker_title"
             android:summary="@string/clear_speaker_summary"
@@ -92,7 +97,7 @@
             android:key="parts_about_me"
             android:title="@string/about_me_title"
             android:summary="@string/about_me_summary"
-            android:icon="@drawable/ic_about_dev" />
+            android:icon="@drawable/ic_neko_paw" />
 
     </PreferenceCategory>
 

@@ -16,8 +16,8 @@
 -->
 <resources>
 
-    <!-- Xiaomi Parts -->
-    <string name="app_name">Xiaomi Parts</string>
+    <!-- Neko Parts -->
+    <string name="app_name">Neko Parts</string>
 
     <!-- Thermal Profiles -->
     <string name="thermal_title">Thermal profiles</string>
@@ -36,10 +36,11 @@
     <string name="thermal_reset">Reset to defaults</string>
     <string name="thermal_reset_message">Are you sure you want to reset thermal profile for all apps?</string>
 
-    <!-- XiaomiParts Category -->
-    <string name="parts_category_display">Display</string>
-    <string name="parts_category_audio">Audio</string>
-    <string name="parts_category_about">About Me</string>
+    <!-- Neko Parts Category -->
+    <string name="parts_settings_category_title">Performance and System</string>
+    <string name="parts_category_display">Display and Touch</string>
+    <string name="parts_category_audio">Audio and Sound</string>
+    <string name="parts_category_about">About Neko Parts</string>
 
     <!-- Title for the High Touch Responsiveness feature -->
     <string name="htsr_title">Enhanced Touch Responsiveness</string>
@@ -161,10 +162,9 @@
     <string name="game_bar_app_selector_title">Select Apps</string>
     <string name="game_bar_app_selector_summary">Add apps that should auto-enable Game Bar</string>
 
-    <!-- Xiaomi Parts Hub -->
-    <string name="xiaomi_parts_title">Xiaomi Parts</string>
-    <string name="xiaomi_parts_summary">Game Bar, Touch Sampling, Core Control and other features</string>
-    <string name="parts_settings_category_title">General</string>
+    <!-- Neko Parts Hub -->
+    <string name="xiaomi_parts_title">Neko Parts</string>
+    <string name="xiaomi_parts_summary">Performance, audio, display and battery features</string>
 
     <!-- Per-app upscale -->
     <string name="upscale_summary">Set upscaling for specific applications</string>
@@ -237,18 +237,43 @@
     <string name="tile_add">Add tile</string>
 
     <!-- About Me -->
-    <string name="about_me_title">About me</string>
-    <string name="about_me_summary">Developer, support and donations</string>
-    <string name="about_me_dev_category">Developer</string>
+    <string name="about_me_title">About Neko Parts</string>
+    <string name="about_me_summary">Developers, device info and links</string>
+
+    <!-- Forker -->
+    <string name="about_forker_category">Forker</string>
+    <string name="about_forker_dev_title">koneko_dev</string>
+    <string name="about_forker_dev_summary">Forker and Maintainer</string>
+    <string name="about_forker_telegram_title">Telegram</string>
+    <string name="about_forker_telegram_summary">@koneko_dev</string>
+    <string name="about_forker_github_title">GitHub</string>
+    <string name="about_forker_github_summary">https://github.com/kusonekoworld-max</string>
+
+    <!-- Original Developer -->
+    <string name="about_me_dev_category">Original Developer</string>
     <string name="about_me_dev_title">Mnskkyy</string>
-    <string name="about_me_dev_summary">Newbie Developer</string>
-    <string name="about_me_links_category">Links</string>
+    <string name="about_me_dev_summary">Original Developer</string>
+    <string name="about_me_links_category">Original Developer Links</string>
     <string name="about_me_contact_title">Channel Update</string>
     <string name="about_me_contact_summary">https://t.me/Aarchivee404</string>
     <string name="about_me_donate_title">SosiaBuzz</string>
     <string name="about_me_donate_summary">https://sociabuzz.com/mnzzprjkt/tribe</string>
     <string name="about_me_donate2_title">Saweria</string>
     <string name="about_me_donate2_summary">https://saweria.co/MnzzProject</string>
+
+    <!-- Device Information -->
+    <string name="about_device_category">Device Information</string>
+    <string name="about_device_title">Device</string>
+    <string name="about_device_summary">Redmi 15 / POCO M7 (creek)</string>
+    <string name="about_platform_title">Platform</string>
+    <string name="about_platform_summary">Qualcomm Snapdragon 685 (Bengal / SM6225)</string>
+    <string name="about_parts_version_title">Neko Parts Version</string>
+    <string name="about_parts_version_summary">2.0 (Material 3 Dark Pink)</string>
+
+    <!-- Dolby Atmos -->
+    <string name="dolby_title">Dolby Atmos</string>
+    <string name="dolby_summary">Spatial sound and DAX audio processing</string>
+    <string name="dolby_not_installed">Dolby Atmos app is not installed</string>
 
     <string name="pq_gpu_comp_title">Force GPU composition</string>
     <string name="pq_gpu_comp_summary">Bypasses the hardware composer. Fixes faded video colors in some apps, but uses more battery</string>

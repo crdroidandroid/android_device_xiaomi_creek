@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 koneko_dev
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- MD3 Dark Pink Palette (Neko Theme) -->
+    <!-- Primary Pink -->
+    <color name="neko_primary">#FFB0CD</color>
+    <color name="neko_on_primary">#54002B</color>
+    <color name="neko_primary_container">#72143E</color>
+    <color name="neko_on_primary_container">#FFD8E4</color>
+
+    <!-- Secondary Soft Pink -->
+    <color name="neko_secondary">#E5BDC8</color>
+    <color name="neko_on_secondary">#432933</color>
+    <color name="neko_secondary_container">#5C3E49</color>
+    <color name="neko_on_secondary_container">#FFD9E3</color>
+
+    <!-- Tertiary Warm Blossom -->
+    <color name="neko_tertiary">#F3B9AC</color>
+    <color name="neko_on_tertiary">#4C261F</color>
+    <color name="neko_tertiary_container">#663C33</color>
+    <color name="neko_on_tertiary_container">#FFDBD3</color>
+
+    <!-- Dark Pink Surfaces & Background (Obsidian Pink) -->
+    <color name="neko_background">#181114</color>
+    <color name="neko_surface">#1E1317</color>
+    <color name="neko_surface_bright">#291920</color>
+    <color name="neko_surface_variant">#341F29</color>
+    <color name="neko_card">#24161D</color>
+    <color name="neko_card_stroke">#4C2D3B</color>
+
+    <!-- Text & Content Colors -->
+    <color name="neko_on_surface">#F4E2E6</color>
+    <color name="neko_on_surface_variant">#D4C1C7</color>
+    <color name="neko_outline">#9D8C92</color>
+    <color name="neko_outline_variant">#514348</color>
+
+    <!-- Vibrant Accents & Controls -->
+    <color name="neko_accent">#FF4081</color>
+    <color name="neko_accent_glow">#FF80AB</color>
+    <color name="neko_accent_ripple">#3DFF4081</color>
+</resources>

@@ -1,0 +1,32 @@
+<!--
+     Copyright (C) 2026 koneko_dev
+     SPDX-License-Identifier: Apache-2.0
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="?android:attr/colorControlNormal">
+    <!-- Neko Paw Pad & Toes -->
+    <!-- Toe 1 -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M5,9.5c0,-1.4 0.9,-2.5 2,-2.5s2,1.1 2,2.5 -0.9,2.5 -2,2.5 -2,-1.1 -2,-2.5z"/>
+    <!-- Toe 2 -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M9.5,5.5c0,-1.4 0.9,-2.5 2,-2.5s2,1.1 2,2.5 -0.9,2.5 -2,2.5 -2,-1.1 -2,-2.5z"/>
+    <!-- Toe 3 -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M15,5.5c0,-1.4 0.9,-2.5 2,-2.5s2,1.1 2,2.5 -0.9,2.5 -2,2.5 -2,-1.1 -2,-2.5z"/>
+    <!-- Toe 4 -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M17,9.5c0,-1.4 0.9,-2.5 2,-2.5s2,1.1 2,2.5 -0.9,2.5 -2,2.5 -2,-1.1 -2,-2.5z"/>
+    <!-- Main Paw Pad -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M12,13c-2.8,0 -5,1.8 -5,4 0,1.8 1.8,3.5 5,3.5s5,-1.7 5,-3.5c0,-2.2 -2.2,-4 -5,-4z"/>
+</vector>

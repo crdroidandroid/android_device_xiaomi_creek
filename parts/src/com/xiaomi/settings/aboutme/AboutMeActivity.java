@@ -13,11 +13,7 @@ public class AboutMeActivity extends CollapsingToolbarBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // A cím megmarad a toolbarban
         setTitle(R.string.about_me_title);
-
-        // Saját layout használata, így a menüpontok a cím alatt jelennek meg
         setContentView(R.layout.activity_about_me);
     }
 
@@ -27,7 +23,29 @@ public class AboutMeActivity extends CollapsingToolbarBaseActivity {
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.about_me_settings, rootKey);
 
-            // Contact preference
+            // Forker Telegram preference
+            Preference forkerTelegram = findPreference("about_forker_telegram");
+            if (forkerTelegram != null) {
+                forkerTelegram.setOnPreferenceClickListener(preference -> {
+                    Intent intent = new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("https://t.me/koneko_dev"));
+                    startActivity(intent);
+                    return true;
+                });
+            }
+
+            // Forker GitHub preference
+            Preference forkerGithub = findPreference("about_forker_github");
+            if (forkerGithub != null) {
+                forkerGithub.setOnPreferenceClickListener(preference -> {
+                    Intent intent = new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("https://github.com/kusonekoworld-max"));
+                    startActivity(intent);
+                    return true;
+                });
+            }
+
+            // Original Developer Contact preference
             Preference contactPreference = findPreference("about_me_contact");
             if (contactPreference != null) {
                 contactPreference.setOnPreferenceClickListener(preference -> {
@@ -38,7 +56,7 @@ public class AboutMeActivity extends CollapsingToolbarBaseActivity {
                 });
             }
 
-            // Donate preference
+            // Original Developer Donate preference
             Preference donatePreference = findPreference("about_me_donate");
             if (donatePreference != null) {
                 donatePreference.setOnPreferenceClickListener(preference -> {
@@ -48,8 +66,8 @@ public class AboutMeActivity extends CollapsingToolbarBaseActivity {
                     return true;
                 });
             }
-            
-            // Donate2 preference
+
+            // Original Developer Donate2 preference
             Preference donate2Preference = findPreference("about_me_donate2");
             if (donate2Preference != null) {
                 donate2Preference.setOnPreferenceClickListener(preference -> {
@@ -59,7 +77,6 @@ public class AboutMeActivity extends CollapsingToolbarBaseActivity {
                     return true;
                 });
             }
-            
         }
     }
 }

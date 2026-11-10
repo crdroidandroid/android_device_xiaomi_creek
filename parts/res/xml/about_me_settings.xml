@@ -3,8 +3,36 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!-- Forker -->
+    <PreferenceCategory
+        android:title="@string/about_forker_category"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            android:key="about_forker_dev"
+            android:title="@string/about_forker_dev_title"
+            android:summary="@string/about_forker_dev_summary"
+            android:icon="@drawable/ic_about_dev"
+            android:selectable="false" />
+
+        <Preference
+            android:key="about_forker_telegram"
+            android:title="@string/about_forker_telegram_title"
+            android:summary="@string/about_forker_telegram_summary"
+            android:icon="@drawable/ic_about_telegram" />
+
+        <Preference
+            android:key="about_forker_github"
+            android:title="@string/about_forker_github_title"
+            android:summary="@string/about_forker_github_summary"
+            android:icon="@drawable/ic_about_github" />
+
+    </PreferenceCategory>
+
+    <!-- Original Developer -->
     <PreferenceCategory
         android:title="@string/about_me_dev_category"
+        app:allowDividerAbove="true"
         app:iconSpaceReserved="false">
 
         <Preference
@@ -13,13 +41,6 @@
             android:summary="@string/about_me_dev_summary"
             android:icon="@drawable/ic_about_dev"
             android:selectable="false" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/about_me_links_category"
-        app:allowDividerAbove="true"
-        app:iconSpaceReserved="false">
 
         <Preference
             android:key="about_me_contact"
@@ -38,6 +59,35 @@
             android:title="@string/about_me_donate2_title"
             android:summary="@string/about_me_donate2_summary"
             android:icon="@drawable/ic_about_donate" />
+
+    </PreferenceCategory>
+
+    <!-- Device Information -->
+    <PreferenceCategory
+        android:title="@string/about_device_category"
+        app:allowDividerAbove="true"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            android:key="about_device"
+            android:title="@string/about_device_title"
+            android:summary="@string/about_device_summary"
+            android:icon="@drawable/ic_neko_device"
+            android:selectable="false" />
+
+        <Preference
+            android:key="about_platform"
+            android:title="@string/about_platform_title"
+            android:summary="@string/about_platform_summary"
+            android:icon="@drawable/ic_core_control"
+            android:selectable="false" />
+
+        <Preference
+            android:key="about_parts_version"
+            android:title="@string/about_parts_version_title"
+            android:summary="@string/about_parts_version_summary"
+            android:icon="@drawable/ic_neko_paw"
+            android:selectable="false" />
 
     </PreferenceCategory>
 

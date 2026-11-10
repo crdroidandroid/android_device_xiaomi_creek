@@ -1,26 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Copyright (C) 2022 The Android Open Source Project
+    Copyright (C) 2026 koneko_dev
+    SPDX-License-Identifier: Apache-2.0
+-->
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-         http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
-  -->
-
-<resources>
     <style name="PreferenceTheme.SettingsLib.Thermal">
         <item name="android:layout">@layout/thermal_layout</item>
     </style>
 
-    <style name="Theme.SubSettingsBase.Thermal">
+    <!-- Neko Parts MD3 Dark Pink Theme (AOSP-compatible) -->
+    <style name="Theme.NekoParts" parent="Theme.SubSettingsBase">
+        <!-- MD3 Dark Pink Palette Tokens -->
+        <item name="colorPrimary">@color/neko_primary</item>
+        <item name="colorOnPrimary">@color/neko_on_primary</item>
+        <item name="colorPrimaryContainer">@color/neko_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/neko_on_primary_container</item>
+
+        <item name="colorSecondary">@color/neko_secondary</item>
+        <item name="colorOnSecondary">@color/neko_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/neko_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/neko_on_secondary_container</item>
+
+        <item name="colorTertiary">@color/neko_tertiary</item>
+        <item name="colorOnTertiary">@color/neko_on_tertiary</item>
+        <item name="colorTertiaryContainer">@color/neko_tertiary_container</item>
+        <item name="colorOnTertiaryContainer">@color/neko_on_tertiary_container</item>
+
+        <!-- Surfaces & Backgrounds -->
+        <item name="android:colorBackground">@color/neko_background</item>
+        <item name="colorSurface">@color/neko_surface</item>
+        <item name="colorOnSurface">@color/neko_on_surface</item>
+        <item name="colorSurfaceVariant">@color/neko_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/neko_on_surface_variant</item>
+        <item name="colorOutline">@color/neko_outline</item>
+        <item name="colorOutlineVariant">@color/neko_outline_variant</item>
+
+        <!-- Accent & Widget Controls -->
+        <item name="colorAccent">@color/neko_accent</item>
+        <item name="android:colorControlActivated">@color/neko_primary</item>
+        <item name="android:colorControlHighlight">@color/neko_accent_ripple</item>
+        <item name="android:statusBarColor">@color/neko_background</item>
+        <item name="android:navigationBarColor">@color/neko_background</item>
+
+        <!-- Collapsing Toolbar Neko Style -->
+        <item name="collapsingToolbarLayoutTheme">@style/CollapsingToolbarLayout.NekoParts</item>
+    </style>
+
+    <style name="CollapsingToolbarLayout.NekoParts">
+        <item name="contentScrim">@color/neko_surface</item>
+        <item name="expandedTitleColor">@color/neko_primary</item>
+        <item name="collapsedTitleColor">@color/neko_on_surface</item>
+        <item name="android:background">@color/neko_background</item>
+    </style>
+
+    <!-- Neko Parts Thermal Theme -->
+    <style name="Theme.NekoParts.Thermal" parent="Theme.NekoParts">
         <item name="preferenceTheme">@style/PreferenceTheme.SettingsLib.Thermal</item>
     </style>
+
+    <!-- Maintain compatibility for any legacy reference -->
+    <style name="Theme.SubSettingsBase.Thermal" parent="Theme.NekoParts.Thermal" />
+
 </resources>

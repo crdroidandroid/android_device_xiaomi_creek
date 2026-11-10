@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2025 The LineageOS Project
+ * Copyright (C) 2025-2026 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,10 +17,8 @@
 package com.xiaomi.settings.hub
 
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.net.Uri
-import android.widget.Toast
 import android.os.Bundle
+import android.widget.Toast
 import androidx.preference.Preference
 import com.android.settingslib.widget.SettingsBasePreferenceFragment
 import com.xiaomi.settings.R
@@ -42,7 +40,6 @@ class XiaomiPartsFragment : SettingsBasePreferenceFragment() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.xiaomi_parts, rootKey)
 
-        // Touch sampling cuma muncul kalau kernel creek punya node report rate
         findPreference<Preference>(KEY_TOUCH_SAMPLING)?.isVisible = TouchSamplingUtils.isSupported()
 
         findPreference<Preference>(KEY_GAME_BAR)?.setOnPreferenceClickListener {
@@ -85,11 +82,15 @@ class XiaomiPartsFragment : SettingsBasePreferenceFragment() {
             true
         }
 
+        findPreference<Preference>(KEY_DOLBY)?.setOnPreferenceClickListener {
+            launchDolby()
+            true
+        }
+
         findPreference<Preference>(KEY_CLEAR_SPEAKER)?.setOnPreferenceClickListener {
             startActivity(Intent(context, ClearSpeakerActivity::class.java))
             true
         }
-
 
         findPreference<Preference>(KEY_ABOUT_ME)?.setOnPreferenceClickListener {
             startActivity(Intent(context, AboutMeActivity::class.java))
@@ -101,6 +102,31 @@ class XiaomiPartsFragment : SettingsBasePreferenceFragment() {
             true
         }
     }
+
+    private fun launchDolby() {
+        val pm = activity?.packageManager ?: return
+        val packages = listOf(
+            "com.dolby.daxappui",
+            "com.motorola.dolby.dolbyui",
+            "com.dolby.atmos"
+        )
+        for (pkg in packages) {
+            val intent = pm.getLaunchIntentForPackage(pkg)
+            if (intent != null) {
+                startActivity(intent)
+                return
+            }
+        }
+        val directIntent = Intent("android.intent.action.MAIN").apply {
+            setClassName("com.dolby.daxappui", "com.dolby.daxappui.MainActivity")
+        }
+        if (directIntent.resolveActivity(pm) != null) {
+            startActivity(directIntent)
+            return
+        }
+        Toast.makeText(context, R.string.dolby_not_installed, Toast.LENGTH_SHORT).show()
+    }
+
     companion object {
         private const val KEY_GAME_BAR = "parts_game_bar"
         private const val KEY_TOUCH_SAMPLING = "parts_touch_sampling"
@@ -108,6 +134,7 @@ class XiaomiPartsFragment : SettingsBasePreferenceFragment() {
         private const val KEY_CHARGING_CONTROL = "parts_charging_control"
         private const val KEY_SYSTEM_RESOLUTION = "parts_system_resolution"
         private const val KEY_PER_APP_RESOLUTION = "parts_per_app_resolution"
+        private const val KEY_DOLBY = "parts_dolby"
         private const val KEY_CLEAR_SPEAKER = "parts_clear_speaker"
         private const val KEY_THERMAL_PROFILES = "parts_thermal_profiles"
         private const val KEY_AUTO_HBM = "parts_auto_hbm"
