@@ -70,7 +70,7 @@ void load_redmi_creek() {
 
 void load_poco_creek() {
     property_override("bluetooth.device.default_name", "POCO M7");
-    property_override("ro.product.brand", "Redmi");
+    property_override("ro.product.brand", "POCO");
     property_override("ro.product.device", "creek_p");
     property_override("ro.product.manufacturer", "Xiaomi");
     property_override("ro.product.marketname", "POCO M7");

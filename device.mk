@@ -730,8 +730,3 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libgrallocutils
 
-# Xiaomi MiSys AIDL interface (used by MIUI Camera)
-PRODUCT_COPY_FILES += \
-
-DEVICE_MANIFEST_FILE += \
-    $(DEVICE_PATH)/configs/vintf/vendor.xiaomi.hardware.misys.common.xml

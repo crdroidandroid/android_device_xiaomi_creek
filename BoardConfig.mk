@@ -62,7 +62,6 @@ TARGET_KERNEL_SOURCE                := $(KERNEL_PATH)/kernel-headers
 # Prebuilt Binary Mapping
 BOARD_KERNEL_IMAGE_NAME             := Image
 TARGET_PREBUILT_KERNEL              := $(KERNEL_PATH)/kernel
-PRODUCT_COPY_FILES                  += $(TARGET_PREBUILT_KERNEL):kernel
 
 # DTB & DTBO Staging
 BOARD_USES_DT                       := true
@@ -287,7 +286,8 @@ include device/qcom/sepolicy_vndr/sm6225/SEPolicy.mk
 include device/xiaomi/sepolicy/SEPolicy.mk
 include device/lineage/sepolicy/libperfmgr/sepolicy.mk
 
-BOARD_VENDOR_SEPOLICY_DIRS                        += $(DEVICE_PATH)/sepolicy/vendor
+BOARD_VENDOR_SEPOLICY_DIRS                        += $(DEVICE_PATH)/sepolicy/vendor \
+                                                   hardware/dolby/sepolicy/vendor
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS                  += $(DEVICE_PATH)/sepolicy/private
 
 
@@ -324,7 +324,8 @@ TARGET_SYSTEM_EXT_PROP                     += $(DEVICE_PATH)/configs/properties/
 DEVICE_MANIFEST_FILE += \
     $(DEVICE_PATH)/configs/vintf/manifest.xml \
     $(DEVICE_PATH)/configs/vintf/network_manifest.xml \
-    $(DEVICE_PATH)/configs/vintf/manifest_nfc.xml
+    $(DEVICE_PATH)/configs/vintf/manifest_nfc.xml \
+    $(DEVICE_PATH)/configs/vintf/vendor.xiaomi.hardware.misys.common.xml
 
 ODM_MANIFEST_FILES += \
     $(DEVICE_PATH)/configs/vintf/manifest_odm.xml
@@ -395,5 +396,3 @@ TARGET_SHIPS_MIUICAMERA ?= true
 ifeq ($(TARGET_SHIPS_MIUICAMERA),true)
 -include device/xiaomi/creek-miuicamera/BoardConfig.mk
 endif
-
-TARGET_BOARD_SUFFIX := _515

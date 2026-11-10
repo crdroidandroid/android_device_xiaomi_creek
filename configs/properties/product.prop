@@ -3,7 +3,7 @@ ro.launcher.blur.appLaunch=0
 
 # Audio
 af.fast_track_multiplier=1
-audio.deep_buffer.media=true
+audio.deep_buffer.media=false
 audio.offload.min.duration.secs=30
 audio.sys.mute.latency.factor=2
 audio.sys.offload.pstimeout.secs=3
