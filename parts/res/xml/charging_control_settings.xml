@@ -35,4 +35,16 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/charge_bypass_title"
+        app:allowDividerAbove="true">
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="charge_bypass"
+            android:title="@string/charge_bypass_title"
+            android:summary="@string/charge_bypass_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

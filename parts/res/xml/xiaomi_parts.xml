@@ -30,6 +30,13 @@
             android:summary="@string/thermal_summary"
             android:icon="@drawable/ic_thermal" />
 
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="parts_perf_boost"
+            android:title="@string/perf_boost_title"
+            android:summary="@string/perf_boost_summary"
+            android:icon="@drawable/ic_cit"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

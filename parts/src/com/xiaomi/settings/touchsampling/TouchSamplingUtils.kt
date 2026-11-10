@@ -32,6 +32,17 @@ object TouchSamplingUtils {
     @JvmStatic
     fun isSupported(): Boolean = CANDIDATES.any { File(it).exists() }
 
+    const val PALM_SENSOR_FILE = "/sys/class/touch/touch_dev/palm_sensor"
+
+    @JvmStatic
+    fun isPalmSensorSupported(): Boolean = File(PALM_SENSOR_FILE).exists()
+
+    @JvmStatic
+    fun setPalmSensor(enable: Boolean): Boolean {
+        val value = if (enable) "1" else "0"
+        return writeLine(PALM_SENSOR_FILE, value)
+    }
+
     @JvmStatic
     fun restoreSamplingValue(context: Context) {
 

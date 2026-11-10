@@ -20,6 +20,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.preference.Preference
+import androidx.preference.SwitchPreferenceCompat
 import com.android.settingslib.widget.SettingsBasePreferenceFragment
 import com.xiaomi.settings.R
 import com.xiaomi.settings.battery.ChargingControlActivity
@@ -34,6 +35,8 @@ import com.xiaomi.settings.thermal.ThermalSettingsActivity
 import com.xiaomi.settings.refreshrate.RefreshActivity
 import com.xiaomi.settings.touchsampling.TouchSamplingSettingsActivity
 import com.xiaomi.settings.touchsampling.TouchSamplingUtils
+import com.xiaomi.settings.utils.writeLine
+import java.io.File
 
 class XiaomiPartsFragment : SettingsBasePreferenceFragment() {
 
@@ -101,6 +104,21 @@ class XiaomiPartsFragment : SettingsBasePreferenceFragment() {
             startActivity(Intent(context, RefreshActivity::class.java))
             true
         }
+
+        findPreference<SwitchPreferenceCompat>(KEY_PERF_BOOST)?.apply {
+            val boostFile = File(NODE_THERMAL_BOOST)
+            if (!boostFile.exists()) {
+                isVisible = false
+            } else {
+                setOnPreferenceChangeListener { _, newValue ->
+                    val enable = newValue as Boolean
+                    val v = if (enable) "1" else "0"
+                    writeLine(NODE_THERMAL_BOOST, v)
+                    writeLine(NODE_THERMAL_BALANCE, v)
+                    true
+                }
+            }
+        }
     }
 
     private fun launchDolby() {
@@ -138,6 +156,9 @@ class XiaomiPartsFragment : SettingsBasePreferenceFragment() {
         private const val KEY_CLEAR_SPEAKER = "parts_clear_speaker"
         private const val KEY_THERMAL_PROFILES = "parts_thermal_profiles"
         private const val KEY_AUTO_HBM = "parts_auto_hbm"
+        private const val KEY_PERF_BOOST = "parts_perf_boost"
+        private const val NODE_THERMAL_BOOST = "/sys/class/thermal/thermal_message/boost"
+        private const val NODE_THERMAL_BALANCE = "/sys/class/thermal/thermal_message/balance_mode"
         private const val KEY_ABOUT_ME = "parts_about_me"
         private const val KEY_PER_APP_REFRESH_RATE = "parts_per_app_refresh_rate"
     }

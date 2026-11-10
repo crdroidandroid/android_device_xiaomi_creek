@@ -36,13 +36,17 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
+import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.settingslib.widget.MainSwitchPreference;
 import com.android.settingslib.widget.UsageProgressBarPreference;
 
+import java.io.File;
+
 import com.xiaomi.settings.Constants;
 import com.xiaomi.settings.CustomSeekBarPreference;
 import com.xiaomi.settings.R;
+import com.xiaomi.settings.utils.FileUtils;
 import com.xiaomi.settings.utils.TileUtils;
 
 public class AutoHbmFragment extends PreferenceFragmentCompat
@@ -83,6 +87,20 @@ public class AutoHbmFragment extends PreferenceFragmentCompat
 
         mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         mLightSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+
+        SwitchPreferenceCompat thermalLockPref = findPreference(Constants.KEY_HBM_THERMAL_LOCK);
+        if (thermalLockPref != null) {
+            File node = new File(Constants.NODE_THERMAL_HBM_DISABLED);
+            if (!node.exists()) {
+                thermalLockPref.setVisible(false);
+            } else {
+                thermalLockPref.setOnPreferenceChangeListener((preference, newValue) -> {
+                    boolean enabled = (Boolean) newValue;
+                    FileUtils.writeValue(Constants.NODE_THERMAL_HBM_DISABLED, enabled ? "1" : "0");
+                    return true;
+                });
+            }
+        }
 
         toggleAutoHbmPreferencesVisibility(mAutoHbmSwitch.isChecked());
     }

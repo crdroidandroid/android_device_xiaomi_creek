@@ -34,6 +34,8 @@ public final class Constants {
     public static final String KEY_AUTO_HBM_ENABLE_TIME = "auto_hbm_enable_time";
     public static final String KEY_AUTO_HBM_DISABLE_TIME = "auto_hbm_disable_time";
     public static final String KEY_CURRENT_LUX_LEVEL = "current_lux_level";
+    public static final String KEY_HBM_THERMAL_LOCK = "hbm_thermal_lock";
+    public static final String NODE_THERMAL_HBM_DISABLED = "/sys/class/mi_display/disp-DSI-0/thermal_hbm_disabled";
 
     // =========================================================
     // Backlight node (klee, futásidőben feloldva)

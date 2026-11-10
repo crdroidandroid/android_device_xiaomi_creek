@@ -20,12 +20,15 @@ object BatteryUtils {
     private const val TAG = "XiaomiBatteryUtils"
     const val PREF_CHARGING_CTRL = "charging_control"
     const val PREF_CHARGING_LIMIT = "charging_limit"
+    const val PREF_CHARGE_BYPASS = "charge_bypass"
     private const val NODE_SUSPEND = "/sys/class/qcom-battery/input_suspend"
 
     const val PREF_CHARGING_POWER = "charging_power_profile"
     const val NODE_FCC = "/sys/class/power_supply/battery/constant_charge_current"
     const val NODE_SIC_MODE = "/sys/class/power_supply/usb/sic_mode"
     private const val FCC_MAX_UA = 22_000_000L
+
+    fun isBypassSupported() = File(NODE_SUSPEND).exists()
 
     // preset wattage -> current cap (uA); 0 = system default
     private fun fccForProfile(watts: Int): Long? = when (watts) {

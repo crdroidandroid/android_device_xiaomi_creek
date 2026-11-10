@@ -12,6 +12,7 @@ import android.os.BatteryManager
 import android.os.Bundle
 import androidx.preference.ListPreference
 import androidx.preference.Preference
+import androidx.preference.SwitchPreferenceCompat
 import com.android.settingslib.widget.SliderPreference
 import com.android.settingslib.widget.MainSwitchPreference
 import com.android.settingslib.widget.SettingsBasePreferenceFragment
@@ -22,6 +23,7 @@ class ChargingControlFragment : SettingsBasePreferenceFragment(),
 
     private var mLimitPref: SliderPreference? = null
     private var mMasterSwitch: MainSwitchPreference? = null
+    private var mBypassPref: SwitchPreferenceCompat? = null
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.charging_control_settings, rootKey)
@@ -48,6 +50,15 @@ class ChargingControlFragment : SettingsBasePreferenceFragment(),
             }
         }
 
+        mBypassPref = findPreference<SwitchPreferenceCompat>(BatteryUtils.PREF_CHARGE_BYPASS)?.apply {
+            if (!BatteryUtils.isBypassSupported()) {
+                isEnabled = false
+                summary = getString(R.string.charge_bypass_unavailable)
+            } else {
+                onPreferenceChangeListener = this@ChargingControlFragment
+            }
+        }
+
         mMasterSwitch = findPreference<MainSwitchPreference>(BatteryUtils.PREF_CHARGING_CTRL)?.apply {
             onPreferenceChangeListener = this@ChargingControlFragment
         }
@@ -56,6 +67,12 @@ class ChargingControlFragment : SettingsBasePreferenceFragment(),
     override fun onPreferenceChange(preference: Preference, newValue: Any): Boolean {
         if (preference.key == BatteryUtils.PREF_CHARGING_POWER) {
             BatteryUtils.applyChargingPowerProfileAsync((newValue as String).toIntOrNull() ?: 0)
+            return true
+        }
+
+        if (preference.key == BatteryUtils.PREF_CHARGE_BYPASS) {
+            val bypass = newValue as Boolean
+            BatteryUtils.setChargingSuspendAsync(bypass)
             return true
         }
 

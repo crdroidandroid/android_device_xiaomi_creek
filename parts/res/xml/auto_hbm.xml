@@ -48,4 +48,10 @@
         android:min="0"
         settings:units=""
         android:defaultValue="1" />
+
+    <androidx.preference.SwitchPreferenceCompat
+        android:key="hbm_thermal_lock"
+        android:title="@string/hbm_thermal_lock_title"
+        android:summary="@string/hbm_thermal_lock_summary"
+        android:defaultValue="false" />
 </PreferenceScreen>

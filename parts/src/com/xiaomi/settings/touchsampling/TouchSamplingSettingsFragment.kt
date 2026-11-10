@@ -29,6 +29,7 @@ class TouchSamplingSettingsFragment : SettingsBasePreferenceFragment(), Preferen
 
     private var mHTSRPreference: SwitchPreferenceCompat? = null
     private var mAutoEnablePreference: SwitchPreferenceCompat? = null
+    private var mPalmPreference: SwitchPreferenceCompat? = null
     private var mChooseAppsPreference: Preference? = null
     private var mPrefs: SharedPreferences? = null
 
@@ -39,6 +40,7 @@ class TouchSamplingSettingsFragment : SettingsBasePreferenceFragment(), Preferen
 
         mHTSRPreference = findPreference(HTSR_ENABLE_KEY)
         mAutoEnablePreference = findPreference(HTSR_AUTO_ENABLE_KEY)
+        mPalmPreference = findPreference(PALM_REJECTION_KEY)
         mChooseAppsPreference = findPreference(HTSR_APP_SELECTOR_KEY)
 
         val htsrEnabled = mPrefs!!.getBoolean(HTSR_STATE, false)
@@ -47,6 +49,15 @@ class TouchSamplingSettingsFragment : SettingsBasePreferenceFragment(), Preferen
 
         if (htsrEnabled) {
             startTouchSamplingService(true)
+        }
+
+        mPalmPreference?.apply {
+            if (!TouchSamplingUtils.isPalmSensorSupported()) {
+                isVisible = false
+            } else {
+                isChecked = mPrefs!!.getBoolean(PALM_STATE, false)
+                onPreferenceChangeListener = this@TouchSamplingSettingsFragment
+            }
         }
 
         mChooseAppsPreference?.setOnPreferenceClickListener {
@@ -61,6 +72,10 @@ class TouchSamplingSettingsFragment : SettingsBasePreferenceFragment(), Preferen
             val isEnabled = newValue as Boolean
             mPrefs!!.edit().putBoolean(HTSR_STATE, isEnabled).apply()
             startTouchSamplingService(isEnabled)
+        } else if (PALM_REJECTION_KEY == preference.key) {
+            val isEnabled = newValue as Boolean
+            mPrefs!!.edit().putBoolean(PALM_STATE, isEnabled).apply()
+            TouchSamplingUtils.setPalmSensor(isEnabled)
         }
         return true
     }
@@ -76,8 +91,10 @@ class TouchSamplingSettingsFragment : SettingsBasePreferenceFragment(), Preferen
 
     companion object {
         private const val HTSR_ENABLE_KEY = "htsr_enable"
+        private const val PALM_REJECTION_KEY = "htsr_palm_rejection"
         const val SHAREDHTSR = "SHAREDHTSR"
         const val HTSR_STATE = "htsr_state"
+        const val PALM_STATE = "palm_rejection_state"
         const val HTSR_AUTO_ENABLE_KEY = "htsr_auto_enable"
         const val HTSR_APP_SELECTOR_KEY = "htsr_app_selector"
         const val HTSR_APPS_PREF = "htsr_auto_apps"
