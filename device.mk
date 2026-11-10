@@ -12,7 +12,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 # Enable virtual A/B compression
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/android_t_baseline.mk)
-PRODUCT_VIRTUAL_AB_COMPRESSION_METHOD := gz
+PRODUCT_VIRTUAL_AB_COMPRESSION_METHOD := lz4
 
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
@@ -261,7 +261,6 @@ PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint-service.xiaomi
 
 PRODUCT_PACKAGES += \
-    libudfpshandler \
     vendor.xiaomi.hardware.fingerprintextension@1.0.vendor \
     vendor.xiaomi.hardware.fx.tunnel@1.0.vendor
 
