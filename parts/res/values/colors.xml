@@ -41,4 +41,22 @@
     <color name="neko_accent">#FF4081</color>
     <color name="neko_accent_glow">#FF80AB</color>
     <color name="neko_accent_ripple">#3DFF4081</color>
+
+    <!-- Surface container tiers (tonal elevation, consumed by SettingsLib/Material surfaces) -->
+    <color name="neko_surface_container_lowest">#130C0F</color>
+    <color name="neko_surface_container_low">#1E1317</color>
+    <color name="neko_surface_container">#24161D</color>
+    <color name="neko_surface_container_high">#2E1F26</color>
+    <color name="neko_surface_container_highest">#392A31</color>
+
+    <!-- Error roles -->
+    <color name="neko_error">#FFB4AB</color>
+    <color name="neko_on_error">#690005</color>
+    <color name="neko_error_container">#93000A</color>
+    <color name="neko_on_error_container">#FFDAD6</color>
+
+    <!-- Inverse roles (snackbars, tooltips) -->
+    <color name="neko_inverse_surface">#F4E2E6</color>
+    <color name="neko_inverse_on_surface">#372E31</color>
+    <color name="neko_inverse_primary">#A23B67</color>
 </resources>

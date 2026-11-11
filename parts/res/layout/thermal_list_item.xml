@@ -38,10 +38,10 @@
     <Spinner
         android:id="@+id/app_mode"
         android:layout_width="120dp"
-        android:layout_height="36dp"
+        android:layout_height="48dp"
         android:layout_gravity="center_vertical"
         android:dropDownWidth="136dp"
-        android:minHeight="0dp"
+        android:minHeight="48dp"
         android:paddingEnd="8dp"
         android:paddingStart="12dp"
         android:spinnerMode="dropdown" />

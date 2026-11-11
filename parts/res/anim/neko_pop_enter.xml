@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Shared axis X (back): previous screen returns from the start -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shareInterpolator="false">
+    <translate
+        android:duration="350"
+        android:fromXDelta="-8%"
+        android:toXDelta="0"
+        android:interpolator="@interpolator/neko_emphasized_decelerate" />
+    <alpha
+        android:duration="210"
+        android:startOffset="90"
+        android:fromAlpha="0"
+        android:toAlpha="1"
+        android:interpolator="@android:interpolator/linear" />
+</set>

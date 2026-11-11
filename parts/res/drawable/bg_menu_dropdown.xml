@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 koneko_dev
+     SPDX-License-Identifier: Apache-2.0
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/neko_surface_container_high" />
+    <stroke
+        android:width="1dp"
+        android:color="@color/neko_outline_variant" />
+    <corners android:radius="16dp" />
+    <padding
+        android:left="6dp"
+        android:top="8dp"
+        android:right="6dp"
+        android:bottom="8dp" />
+</shape>

@@ -29,14 +29,31 @@
         android:scrollbars="vertical"
         android:visibility="gone" />
 
-    <TextView
+    <LinearLayout
         android:id="@+id/thermal_loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:layout_gravity="center"
-        android:text="@string/thermal_loading"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="?android:attr/textColorSecondary" />
+        android:layout_marginTop="32dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:indeterminate="true"
+            android:indeterminateTint="?attr/colorPrimary"
+            android:importantForAccessibility="no" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:accessibilityLiveRegion="polite"
+            android:text="@string/thermal_loading"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="?attr/colorOnSurfaceVariant" />
+    </LinearLayout>
 
 </LinearLayout>

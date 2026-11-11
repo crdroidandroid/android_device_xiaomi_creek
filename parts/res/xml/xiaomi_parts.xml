@@ -30,13 +30,6 @@
             android:summary="@string/thermal_summary"
             android:icon="@drawable/ic_thermal" />
 
-        <androidx.preference.SwitchPreferenceCompat
-            android:key="parts_perf_boost"
-            android:title="@string/perf_boost_title"
-            android:summary="@string/perf_boost_summary"
-            android:icon="@drawable/ic_cit"
-            android:defaultValue="false" />
-
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -50,11 +43,12 @@
             android:summary="@string/refresh_summary"
             android:icon="@drawable/ic_refresh_rate" />
 
-        <Preference
-            android:key="parts_touch_sampling"
-            android:title="@string/htsr_title"
-            android:summary="@string/htsr_enable_summary"
-            android:icon="@drawable/ic_touch_sampling_tile" />
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="htsr_palm_rejection"
+            android:title="@string/htsr_palm_title"
+            android:summary="@string/htsr_palm_summary"
+            android:icon="@drawable/ic_touch_sampling_tile"
+            android:defaultValue="false" />
 
         <Preference
             android:key="parts_auto_hbm"

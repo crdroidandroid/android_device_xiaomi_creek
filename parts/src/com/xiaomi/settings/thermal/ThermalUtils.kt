@@ -70,13 +70,25 @@ private constructor(
     fun writePackage(packageName: String, mode: Int) {
         dlog(TAG, "writePackage: $packageName -> $mode")
         var newValue = value.replace("$packageName,", "")
-        val modes = newValue.split(":").toMutableList()
-        modes[mode] += "$packageName,"
-        value = modes.joinToString(":")
+        var modes = newValue.split(":").toMutableList()
+        val expectedSize = ThermalState.values().size
+        if (modes.size != expectedSize) {
+            newValue = DEFAULT_VALUE
+            modes = newValue.split(":").toMutableList()
+        }
+        if (mode in 0 until modes.size) {
+            modes[mode] += "$packageName,"
+            value = modes.joinToString(":")
+        }
     }
 
     fun getStateForPackage(packageName: String): ThermalState {
         val modes = value.split(":")
+        val expectedSize = ThermalState.values().size
+        if (modes.size != expectedSize) {
+            value = DEFAULT_VALUE
+            return getDefaultStateForPackage(packageName)
+        }
         return ThermalState.values().find { state -> modes[state.id].contains("$packageName,") }
             ?: getDefaultStateForPackage(packageName)
     }
@@ -144,65 +156,71 @@ private constructor(
         val prefix: String,
         @StringRes val label: Int,
     ) {
-        BENCHMARK(
+        DEFAULT(
             0,
-            "6", // thermal-nolimits.conf
-            "thermal.benchmark=",
-            R.string.thermal_benchmark,
-        ),
-        BROWSER(
-            1,
-            "7", // thermal-class0.conf
-            "thermal.browser=",
-            R.string.thermal_browser,
-        ),
-        CAMERA(
-            2,
-            "15", // thermal-camera.conf
-            "thermal.camera=",
-            R.string.thermal_camera,
+            "0", // thermal-normal.conf
+            "thermal.default=",
+            R.string.thermal_default,
         ),
         DIALER(
-            3,
+            1,
             "5", // thermal-phone.conf
             "thermal.dialer=",
             R.string.thermal_dialer,
         ),
-        GAMING(
-            4,
-            "18", // thermal-tgame.conf
-            "thermal.gaming=",
-            R.string.thermal_gaming,
+        BROWSER(
+            2,
+            "7", // thermal-class0.conf
+            "thermal.browser=",
+            R.string.thermal_browser,
         ),
         NAVIGATION(
-            5,
+            3,
             "10", // thermal-navigation.conf
             "thermal.navigation=",
             R.string.thermal_navigation,
         ),
-        VIDEOCALL(
-            6,
-            "14", // thermal-videochat.conf
-            "thermal.streaming=",
-            R.string.thermal_streaming,
-        ),
         VIDEO(
-            7,
+            4,
             "11", // thermal-video.conf
             "thermal.video=",
             R.string.thermal_video,
         ),
-        DEFAULT(
+        VIDEOCALL(
+            5,
+            "14", // thermal-videochat.conf
+            "thermal.streaming=",
+            R.string.thermal_streaming,
+        ),
+        CAMERA(
+            6,
+            "15", // thermal-camera.conf
+            "thermal.camera=",
+            R.string.thermal_camera,
+        ),
+        GAMING(
+            7,
+            "18", // thermal-tgame.conf
+            "thermal.gaming=",
+            R.string.thermal_gaming,
+        ),
+        MID_GAMING(
             8,
-            "0", // thermal-normal.conf
-            "thermal.default=",
-            R.string.thermal_default,
+            "19", // thermal-mgame.conf
+            "thermal.mid_gaming=",
+            R.string.thermal_mid_gaming,
+        ),
+        BENCHMARK(
+            9,
+            "20", // thermal-yuanshen.conf
+            "thermal.benchmark=",
+            R.string.thermal_benchmark,
         ),
     }
 
     companion object {
         private const val TAG = "ThermalUtils"
-        private const val THERMAL_CONTROL = "thermal_control_v2"
+        private const val THERMAL_CONTROL = "thermal_control_v3"
         private const val THERMAL_ENABLED = "thermal_enabled"
 
         private const val THERMAL_SCONFIG = "/sys/devices/virtual/thermal/thermal_message/sconfig"

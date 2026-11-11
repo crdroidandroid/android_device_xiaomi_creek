@@ -37,15 +37,4 @@
 
      </PreferenceCategory>
 
-     <PreferenceCategory
-          android:title="@string/htsr_palm_category"
-          app:allowDividerAbove="true">
-
-          <androidx.preference.SwitchPreferenceCompat
-               android:key="htsr_palm_rejection"
-               android:title="@string/htsr_palm_title"
-               android:summary="@string/htsr_palm_summary"
-               android:defaultValue="false" />
-
-     </PreferenceCategory>
 </PreferenceScreen>

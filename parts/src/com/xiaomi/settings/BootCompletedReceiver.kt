@@ -7,9 +7,11 @@ import android.os.UserHandle
 import android.util.Log
 import com.xiaomi.settings.display.ColorService
 import com.xiaomi.settings.battery.ChargingLimitService
+import com.xiaomi.settings.gamebar.PerfBoostUtils
 import com.xiaomi.settings.refreshrate.RefreshService
 import com.xiaomi.settings.thermal.ThermalUtils
 import com.xiaomi.settings.touchsampling.TouchSamplingService
+import com.xiaomi.settings.touchsampling.TouchSamplingSettingsFragment
 import com.xiaomi.settings.touchsampling.TouchSamplingTileService
 import com.xiaomi.settings.touchsampling.TouchSamplingUtils
 
@@ -31,14 +33,25 @@ class BootCompletedReceiver : BroadcastReceiver() {
         // Display
         context.startServiceAsUser(Intent(context, ColorService::class.java), UserHandle.CURRENT)
 
-        // Touch Sampling (cuma kalau kernel punya node report rate)
+        // Touch Sampling
         if (TouchSamplingUtils.isSupported()) {
             context.startServiceAsUser(Intent(context, TouchSamplingService::class.java), UserHandle.CURRENT)
             context.startServiceAsUser(Intent(context, TouchSamplingTileService::class.java), UserHandle.CURRENT)
         }
 
+        // Restore Palm Rejection if enabled
+        if (TouchSamplingUtils.isPalmSensorSupported()) {
+            val htsrPrefs = context.getSharedPreferences(TouchSamplingSettingsFragment.SHAREDHTSR, Context.MODE_PRIVATE)
+            if (htsrPrefs.getBoolean(TouchSamplingSettingsFragment.PALM_STATE, false)) {
+                TouchSamplingUtils.setPalmSensor(true)
+            }
+        }
+
         // Thermal
         ThermalUtils.getInstance(context).startService()
+
+        // Performance Boost
+        PerfBoostUtils.restore(context)
 
         // Battery
         context.startServiceAsUser(Intent(context, ChargingLimitService::class.java), UserHandle.CURRENT)

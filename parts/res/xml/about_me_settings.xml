@@ -3,6 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!-- Header: GitHub avatar + profile link -->
+    <com.xiaomi.settings.aboutme.AboutHeaderPreference
+        android:key="about_header"
+        app:iconSpaceReserved="false" />
+
     <!-- Forker -->
     <PreferenceCategory
         android:title="@string/about_forker_category"

@@ -8,7 +8,7 @@
     android:layout_height="wrap_content"
     android:ellipsize="end"
     android:gravity="center_vertical"
-    android:minHeight="40dp"
+    android:minHeight="48dp"
     android:paddingEnd="16dp"
     android:paddingStart="16dp"
     android:singleLine="true"

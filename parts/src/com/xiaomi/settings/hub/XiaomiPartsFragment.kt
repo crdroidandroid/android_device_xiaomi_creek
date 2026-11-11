@@ -16,6 +16,7 @@
 
 package com.xiaomi.settings.hub
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -34,9 +35,8 @@ import com.xiaomi.settings.speaker.ClearSpeakerActivity
 import com.xiaomi.settings.thermal.ThermalSettingsActivity
 import com.xiaomi.settings.refreshrate.RefreshActivity
 import com.xiaomi.settings.touchsampling.TouchSamplingSettingsActivity
+import com.xiaomi.settings.touchsampling.TouchSamplingSettingsFragment
 import com.xiaomi.settings.touchsampling.TouchSamplingUtils
-import com.xiaomi.settings.utils.writeLine
-import java.io.File
 
 class XiaomiPartsFragment : SettingsBasePreferenceFragment() {
 
@@ -105,16 +105,19 @@ class XiaomiPartsFragment : SettingsBasePreferenceFragment() {
             true
         }
 
-        findPreference<SwitchPreferenceCompat>(KEY_PERF_BOOST)?.apply {
-            val boostFile = File(NODE_THERMAL_BOOST)
-            if (!boostFile.exists()) {
+        findPreference<SwitchPreferenceCompat>(KEY_PALM_REJECTION)?.apply {
+            if (!TouchSamplingUtils.isPalmSensorSupported()) {
                 isVisible = false
             } else {
+                val htsrPrefs = requireContext().getSharedPreferences(
+                    TouchSamplingSettingsFragment.SHAREDHTSR,
+                    Context.MODE_PRIVATE
+                )
+                isChecked = htsrPrefs.getBoolean(TouchSamplingSettingsFragment.PALM_STATE, false)
                 setOnPreferenceChangeListener { _, newValue ->
-                    val enable = newValue as Boolean
-                    val v = if (enable) "1" else "0"
-                    writeLine(NODE_THERMAL_BOOST, v)
-                    writeLine(NODE_THERMAL_BALANCE, v)
+                    val isEnabled = newValue as Boolean
+                    htsrPrefs.edit().putBoolean(TouchSamplingSettingsFragment.PALM_STATE, isEnabled).apply()
+                    TouchSamplingUtils.setPalmSensor(isEnabled)
                     true
                 }
             }
@@ -148,6 +151,7 @@ class XiaomiPartsFragment : SettingsBasePreferenceFragment() {
     companion object {
         private const val KEY_GAME_BAR = "parts_game_bar"
         private const val KEY_TOUCH_SAMPLING = "parts_touch_sampling"
+        private const val KEY_PALM_REJECTION = "htsr_palm_rejection"
         private const val KEY_CORE_CONTROL = "parts_core_control"
         private const val KEY_CHARGING_CONTROL = "parts_charging_control"
         private const val KEY_SYSTEM_RESOLUTION = "parts_system_resolution"
@@ -156,9 +160,6 @@ class XiaomiPartsFragment : SettingsBasePreferenceFragment() {
         private const val KEY_CLEAR_SPEAKER = "parts_clear_speaker"
         private const val KEY_THERMAL_PROFILES = "parts_thermal_profiles"
         private const val KEY_AUTO_HBM = "parts_auto_hbm"
-        private const val KEY_PERF_BOOST = "parts_perf_boost"
-        private const val NODE_THERMAL_BOOST = "/sys/class/thermal/thermal_message/boost"
-        private const val NODE_THERMAL_BALANCE = "/sys/class/thermal/thermal_message/balance_mode"
         private const val KEY_ABOUT_ME = "parts_about_me"
         private const val KEY_PER_APP_REFRESH_RATE = "parts_per_app_refresh_rate"
     }

@@ -37,12 +37,34 @@
         <item name="colorOutline">@color/neko_outline</item>
         <item name="colorOutlineVariant">@color/neko_outline_variant</item>
 
+
+        <!-- Surface container tiers -->
+        <item name="colorSurfaceContainerLowest">@color/neko_surface_container_lowest</item>
+        <item name="colorSurfaceContainerLow">@color/neko_surface_container_low</item>
+        <item name="colorSurfaceContainer">@color/neko_surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/neko_surface_container_high</item>
+        <item name="colorSurfaceContainerHighest">@color/neko_surface_container_highest</item>
+
+        <!-- Error + inverse roles -->
+        <item name="colorError">@color/neko_error</item>
+        <item name="colorOnError">@color/neko_on_error</item>
+        <item name="colorErrorContainer">@color/neko_error_container</item>
+        <item name="colorOnErrorContainer">@color/neko_on_error_container</item>
+        <item name="colorSurfaceInverse">@color/neko_inverse_surface</item>
+        <item name="colorOnSurfaceInverse">@color/neko_inverse_on_surface</item>
+        <item name="colorPrimaryInverse">@color/neko_inverse_primary</item>
+
+        <!-- Motion: shared-axis screen transitions (follow system animator scale) -->
+        <item name="android:windowAnimationStyle">@style/Animation.NekoParts</item>
+
         <!-- Accent & Widget Controls -->
         <item name="colorAccent">@color/neko_accent</item>
         <item name="android:colorControlActivated">@color/neko_primary</item>
         <item name="android:colorControlHighlight">@color/neko_accent_ripple</item>
         <item name="android:statusBarColor">@color/neko_background</item>
         <item name="android:navigationBarColor">@color/neko_background</item>
+
+        <item name="android:alertDialogTheme">@style/Theme.NekoParts.Dialog</item>
 
         <!-- Collapsing Toolbar Neko Style -->
         <item name="collapsingToolbarLayoutTheme">@style/CollapsingToolbarLayout.NekoParts</item>
@@ -53,6 +75,29 @@
         <item name="expandedTitleColor">@color/neko_primary</item>
         <item name="collapsedTitleColor">@color/neko_on_surface</item>
         <item name="android:background">@color/neko_background</item>
+    </style>
+
+    <style name="Animation.NekoParts" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/neko_enter</item>
+        <item name="android:activityOpenExitAnimation">@anim/neko_exit</item>
+        <item name="android:activityCloseEnterAnimation">@anim/neko_pop_enter</item>
+        <item name="android:activityCloseExitAnimation">@anim/neko_pop_exit</item>
+    </style>
+
+    <!-- M3 dialog: 28dp container on surfaceContainerHigh, tonal text buttons -->
+    <style name="Theme.NekoParts.Dialog" parent="@android:style/Theme.DeviceDefault.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/neko_dialog_background</item>
+        <item name="android:windowAnimationStyle">@style/Animation.NekoParts.Dialog</item>
+        <item name="android:textColorPrimary">@color/neko_on_surface</item>
+        <item name="android:textColorSecondary">@color/neko_on_surface_variant</item>
+        <item name="android:colorAccent">@color/neko_primary</item>
+        <item name="android:colorControlActivated">@color/neko_primary</item>
+        <item name="android:buttonBarButtonStyle">@android:style/Widget.DeviceDefault.Button.Borderless.Colored</item>
+    </style>
+
+    <style name="Animation.NekoParts.Dialog" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/neko_dialog_enter</item>
+        <item name="android:windowExitAnimation">@anim/neko_dialog_exit</item>
     </style>
 
     <!-- Neko Parts Thermal Theme -->

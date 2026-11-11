@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 koneko_dev
+     SPDX-License-Identifier: Apache-2.0
+-->
+<layoutAnimation xmlns:android="http://schemas.android.com/apk/res/android"
+    android:delay="12%"
+    android:animationOrder="normal"
+    android:animation="@anim/neko_layout_item_anim" />

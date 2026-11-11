@@ -9,6 +9,7 @@
     package="com.xiaomi.settings"
     android:sharedUserId="android.uid.system">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.ACCESS_SURFACE_FLINGER" />
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
@@ -43,10 +44,14 @@
 
         <!-- Services -->
 
-        <!-- Battery/Charging Activity — Get called by XiaomiPartsFragment -->
+        <!-- Battery/Charging Activity & Service -->
         <activity
             android:name=".battery.ChargingControlActivity"
             android:label="@string/charging_control_title"
+            android:exported="false" />
+
+        <service
+            android:name=".battery.ChargingLimitService"
             android:exported="false" />
 
         <!-- ====================================================== -->

@@ -33,6 +33,7 @@
         <TextView
             android:id="@+id/system_resolution_header"
             android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="?attr/colorOnSurface"
             android:text="@string/system_resolution_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -42,6 +43,7 @@
             android:id="@+id/system_resolution_summary"
             android:layout_marginTop="8dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="?attr/colorOnSurfaceVariant"
             android:text="@string/system_resolution_summary_setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -50,6 +52,7 @@
         <Spinner
             android:id="@+id/system_resolution_mode"
             android:layout_marginTop="16dp"
+            android:minHeight="48dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -59,7 +62,7 @@
             android:layout_height="1dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="4dp"
-            android:background="?android:attr/listDivider" />
+            android:background="?attr/colorOutlineVariant" />
 
         <!-- Custom resolution section header -->
         <TextView
@@ -68,12 +71,13 @@
             android:layout_marginTop="8dp"
             android:text="@string/custom_resolution_section_title"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="?android:attr/colorAccent" />
+            android:textColor="?attr/colorPrimary" />
 
         <!-- Info note -->
         <TextView
             android:layout_marginTop="8dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="?attr/colorOnSurfaceVariant"
             android:text="@string/system_resolution_note"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

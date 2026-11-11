@@ -21,14 +21,18 @@ object BatteryUtils {
     const val PREF_CHARGING_CTRL = "charging_control"
     const val PREF_CHARGING_LIMIT = "charging_limit"
     const val PREF_CHARGE_BYPASS = "charge_bypass"
-    private const val NODE_SUSPEND = "/sys/class/qcom-battery/input_suspend"
+
+    private val NODES_SUSPEND = arrayOf(
+        "/sys/class/qcom-battery/input_suspend",
+        "/sys/class/power_supply/battery/input_suspend"
+    )
 
     const val PREF_CHARGING_POWER = "charging_power_profile"
     const val NODE_FCC = "/sys/class/power_supply/battery/constant_charge_current"
     const val NODE_SIC_MODE = "/sys/class/power_supply/usb/sic_mode"
     private const val FCC_MAX_UA = 22_000_000L
 
-    fun isBypassSupported() = File(NODE_SUSPEND).exists()
+    fun isBypassSupported(): Boolean = NODES_SUSPEND.any { File(it).exists() }
 
     // preset wattage -> current cap (uA); 0 = system default
     private fun fccForProfile(watts: Int): Long? = when (watts) {
@@ -85,20 +89,27 @@ object BatteryUtils {
     private val ioScope = CoroutineScope(Dispatchers.IO + SupervisorJob())
 
     fun setChargingSuspend(suspend: Boolean) {
-        val file = File(NODE_SUSPEND)
-        if (!file.exists()) return
         val value = if (suspend) "1" else "0"
-        try {
-            FileOutputStream(file).use { fos ->
-                fos.write(value.toByteArray(StandardCharsets.UTF_8))
-                fos.flush()
-                try {
-                    fos.fd.sync()
-                } catch (ignored: IOException) {}
+        var success = false
+        for (nodePath in NODES_SUSPEND) {
+            val file = File(nodePath)
+            if (!file.exists()) continue
+            try {
+                FileOutputStream(file).use { fos ->
+                    fos.write("$value\n".toByteArray(StandardCharsets.UTF_8))
+                    fos.flush()
+                    try {
+                        fos.fd.sync()
+                    } catch (ignored: IOException) {}
+                }
+                Log.d(TAG, "Successfully wrote $value to $nodePath")
+                success = true
+            } catch (e: IOException) {
+                Log.e(TAG, "Failed to write to $nodePath", e)
             }
-            Log.d(TAG, "Successfully wrote $value to $NODE_SUSPEND")
-        } catch (e: IOException) {
-            Log.e(TAG, "Failed to write to $NODE_SUSPEND", e)
+        }
+        if (!success) {
+            Log.w(TAG, "No suspend node was written")
         }
     }
 

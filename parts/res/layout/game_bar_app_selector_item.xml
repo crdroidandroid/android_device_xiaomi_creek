@@ -3,14 +3,20 @@
     android:id="@+id/app_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp"
-    android:orientation="horizontal">
+    android:background="?android:attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:minHeight="56dp"
+    android:orientation="horizontal"
+    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+    android:paddingTop="8dp"
+    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+    android:paddingBottom="8dp">
 
     <ImageView
         android:id="@+id/app_icon"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginEnd="8dp" />
+        android:layout_marginEnd="16dp" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -22,13 +28,14 @@
             android:id="@+id/app_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="16sp" />
+            android:textAppearance="?android:attr/textAppearanceListItem"
+            android:textColor="?attr/colorOnSurface" />
 
         <TextView
             android:id="@+id/app_package"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="12sp" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="?attr/colorOnSurfaceVariant" />
     </LinearLayout>
 </LinearLayout>

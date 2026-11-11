@@ -36,8 +36,8 @@ class ChargingControlFragment : SettingsBasePreferenceFragment(),
             val raw = value
             val clamped = min + Math.round((raw - min).toFloat() / step) * step
             if (clamped != raw) {
-           value = clamped
-        }
+                value = clamped
+            }
             onPreferenceChangeListener = this@ChargingControlFragment
             updateSummary(value)
         }
@@ -73,6 +73,7 @@ class ChargingControlFragment : SettingsBasePreferenceFragment(),
         if (preference.key == BatteryUtils.PREF_CHARGE_BYPASS) {
             val bypass = newValue as Boolean
             BatteryUtils.setChargingSuspendAsync(bypass)
+            requireContext().startService(Intent(requireContext(), ChargingLimitService::class.java))
             return true
         }
 
@@ -86,8 +87,13 @@ class ChargingControlFragment : SettingsBasePreferenceFragment(),
             updateSummary(limit)
         }
 
-        val currentLevel = getBatteryLevel()
-        BatteryUtils.setChargingSuspendAsync(isEnabled && currentLevel >= limit)
+        val bypass = mBypassPref?.isChecked ?: false
+        if (bypass) {
+            BatteryUtils.setChargingSuspendAsync(true)
+        } else {
+            val currentLevel = getBatteryLevel()
+            BatteryUtils.setChargingSuspendAsync(isEnabled && currentLevel >= limit)
+        }
 
         requireContext().startService(Intent(requireContext(), ChargingLimitService::class.java))
         return true
@@ -105,8 +111,10 @@ class ChargingControlFragment : SettingsBasePreferenceFragment(),
     override fun onDestroyView() {
         mLimitPref?.onPreferenceChangeListener = null
         mMasterSwitch?.onPreferenceChangeListener = null
+        mBypassPref?.onPreferenceChangeListener = null
         mLimitPref = null
         mMasterSwitch = null
+        mBypassPref = null
         super.onDestroyView()
     }
 }

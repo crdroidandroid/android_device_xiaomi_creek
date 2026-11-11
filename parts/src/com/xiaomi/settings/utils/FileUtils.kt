@@ -29,7 +29,10 @@ fun readOneLine(fileName: String): String? =
  * @return true on success, false on failure
  */
 fun writeLine(fileName: String, value: String): Boolean =
-    runCatching { File(fileName).writeText(value) }
+    runCatching {
+        val toWrite = if (value.endsWith("\n")) value else "$value\n"
+        File(fileName).writeText(toWrite)
+    }
         .onFailure { e -> Log.e(TAG, "Could not write to file $fileName", e) }
         .isSuccess
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 koneko_dev
+     SPDX-License-Identifier: Apache-2.0
+-->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:interpolator/fast_out_slow_in">
+    <scale
+        android:fromXScale="1.0"
+        android:toXScale="1.08"
+        android:fromYScale="1.0"
+        android:toYScale="1.08"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:repeatMode="reverse"
+        android:repeatCount="infinite"
+        android:duration="600" />
+    <alpha
+        android:fromAlpha="1.0"
+        android:toAlpha="0.75"
+        android:repeatMode="reverse"
+        android:repeatCount="infinite"
+        android:duration="600" />
+</set>

@@ -53,6 +53,13 @@ class ChargingLimitService : Service() {
         }
         mWasPlugged = plugged
 
+        // If bypass charging is enabled, battery charging must always stay suspended!
+        val bypass = prefs.getBoolean(BatteryUtils.PREF_CHARGE_BYPASS, false)
+        if (bypass) {
+            BatteryUtils.setChargingSuspendAsync(true)
+            return
+        }
+
         if (!prefs.getBoolean(BatteryUtils.PREF_CHARGING_CTRL, false)) {
             BatteryUtils.setChargingSuspendAsync(false)
             return

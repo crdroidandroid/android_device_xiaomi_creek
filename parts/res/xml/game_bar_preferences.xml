@@ -14,6 +14,12 @@
         android:dependency="game_bar_enable">
 
         <SwitchPreferenceCompat
+            android:key="game_bar_perf_boost"
+            android:title="@string/perf_boost_title"
+            android:summary="@string/perf_boost_summary"
+            android:defaultValue="false" />
+
+        <SwitchPreferenceCompat
             android:key="game_bar_fps_enable"
             android:title="@string/game_bar_fps_title"
             android:summary="@string/game_bar_fps_summary"
