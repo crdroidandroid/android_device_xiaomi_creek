@@ -1,7 +1,5 @@
 # Infinity Device Information
 ro.product.marketname=Redmi 15 / POCO M7
-ro.infinity.soc=Qualcomm Snapdragon 685 4G
-ro.infinity.camera=50MP + 8MP
 
 # Media
 media.settings.xml=/vendor/etc/media_profiles_khaje_v0.xml
