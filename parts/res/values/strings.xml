@@ -298,7 +298,7 @@
 
     <!-- Performance Boost -->
     <string name="perf_boost_title">Performance mode</string>
-    <string name="perf_boost_summary">Prioritize Snapdragon 685 performance by lifting thermal throttling limits</string>
+    <string name="perf_boost_summary">Boost performance for a smoother gaming experience.</string>
 
     <!-- Edge Palm Rejection -->
     <string name="htsr_palm_category">Edge Touch Filter</string>

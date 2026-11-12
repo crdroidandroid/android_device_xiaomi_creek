@@ -50,9 +50,6 @@
             android:label="@string/charging_control_title"
             android:exported="false" />
 
-        <service
-            android:name=".battery.ChargingLimitService"
-            android:exported="false" />
 
         <!-- ====================================================== -->
         <!-- Neko Parts Hub — Standalone launcher entry point   -->

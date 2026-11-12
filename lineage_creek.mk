@@ -49,3 +49,8 @@ PRODUCT_NO_CAMERA := false
 
 
 TARGET_HAS_UDFPS := false
+
+
+# Keep original prebuilt kernel
+PRODUCT_COPY_FILES += \
+    device/xiaomi/creek-kernel/kernel:kernel

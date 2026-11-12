@@ -63,6 +63,8 @@ TARGET_KERNEL_SOURCE                := $(KERNEL_PATH)/kernel-headers
 BOARD_KERNEL_IMAGE_NAME             := Image
 TARGET_PREBUILT_KERNEL              := $(KERNEL_PATH)/kernel
 
+
+
 # DTB & DTBO Staging
 BOARD_USES_DT                       := true
 BOARD_INCLUDE_DTB_IN_BOOTIMG        := true

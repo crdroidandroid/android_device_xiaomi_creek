@@ -66,17 +66,8 @@
 
         <item name="android:alertDialogTheme">@style/Theme.NekoParts.Dialog</item>
 
-        <!-- Collapsing Toolbar Neko Style -->
-        <item name="collapsingToolbarLayoutTheme">@style/CollapsingToolbarLayout.NekoParts</item>
-    </style>
 
-    <style name="CollapsingToolbarLayout.NekoParts">
-        <item name="contentScrim">@color/neko_surface</item>
-        <item name="expandedTitleColor">@color/neko_primary</item>
-        <item name="collapsedTitleColor">@color/neko_on_surface</item>
-        <item name="android:background">@color/neko_background</item>
     </style>
-
     <style name="Animation.NekoParts" parent="@android:style/Animation.Activity">
         <item name="android:activityOpenEnterAnimation">@anim/neko_enter</item>
         <item name="android:activityOpenExitAnimation">@anim/neko_exit</item>

@@ -689,7 +689,7 @@ PRODUCT_PACKAGES += \
     XiaomiParts
 
 # MiuiCamera
-TARGET_SHIPS_MIUICAMERA ?= true
+TARGET_SHIPS_MIUICAMERA := false
 
 ifeq ($(TARGET_SHIPS_MIUICAMERA),true)
 ifneq ($(wildcard vendor/xiaomi/creek-miuicamera/creek-miuicamera-vendor.mk),)

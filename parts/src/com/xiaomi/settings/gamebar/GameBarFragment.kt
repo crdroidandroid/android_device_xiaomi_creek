@@ -70,18 +70,17 @@ class GameBarFragment : SettingsBasePreferenceFragment() {
         // Initialize all preferences.
         mMasterSwitch = findPreference("game_bar_enable")
         mAutoEnableSwitch = findPreference("game_bar_auto_enable")
-        mPerfBoostSwitch = findPreference(PerfBoostUtils.PREF_PERF_BOOST)?.apply {
-            if (!PerfBoostUtils.isSupported()) {
-                isVisible = false
-            } else {
-                isChecked = PerfBoostUtils.isEnabled(requireContext())
-                setOnPreferenceChangeListener { _, newValue ->
-                    val enable = newValue as Boolean
-                    PerfBoostUtils.setPerformanceBoost(enable)
-                    true
-                }
+        mPerfBoostSwitch = findPreference<SwitchPreferenceCompat>(
+            PerfBoostUtils.PREF_PERF_BOOST
+        )?.apply {
+            isChecked = PerfBoostUtils.isEnabled(requireContext())
+            setOnPreferenceChangeListener { _, newValue ->
+                val enable = newValue as Boolean
+                PerfBoostUtils.setPerformanceBoost(enable)
+                true
             }
         }
+
         mFpsSwitch = findPreference("game_bar_fps_enable")
         mBatteryTempSwitch = findPreference("game_bar_temp_enable")
         mCpuUsageSwitch = findPreference("game_bar_cpu_usage_enable")
