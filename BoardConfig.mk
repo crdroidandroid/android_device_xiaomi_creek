@@ -288,8 +288,7 @@ include device/qcom/sepolicy_vndr/sm6225/SEPolicy.mk
 include device/xiaomi/sepolicy/SEPolicy.mk
 include device/lineage/sepolicy/libperfmgr/sepolicy.mk
 
-BOARD_VENDOR_SEPOLICY_DIRS                        += $(DEVICE_PATH)/sepolicy/vendor \
-                                                   hardware/dolby/sepolicy/vendor
+BOARD_VENDOR_SEPOLICY_DIRS                        += $(DEVICE_PATH)/sepolicy/vendor
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS                  += $(DEVICE_PATH)/sepolicy/private
 
 
@@ -398,3 +397,6 @@ TARGET_SHIPS_MIUICAMERA ?= true
 ifeq ($(TARGET_SHIPS_MIUICAMERA),true)
 -include device/xiaomi/creek-miuicamera/BoardConfig.mk
 endif
+
+# Dolby Vision: C2 HAL manifest
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/hidl/c2_manifest_vendor.xml

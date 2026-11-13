@@ -682,6 +682,10 @@ PRODUCT_PACKAGES += \
     firmware_wlan_mac.bin_symlink \
     firmware_WCNSS_qcom_cfg.ini_symlink \
     firmware_wlanmdsp.mbn_symlink
+# Dolby flags (harus sebelum dolby.mk)
+TARGET_INCLUDES_OEM_App := true
+TARGET_INCLUDES_DolbyVision := true
+
 # Lunaris Dolby
 $(call inherit-product, hardware/dolby/dolby.mk)
 # Parts

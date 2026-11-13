@@ -60,11 +60,6 @@ blob_fixups: blob_fixups_user_type = {
             b'\xe0\x83\x00\x91\xe1\x23\x00\x91\x1f\x20\x03\xd5\xe8\x23\x40\x39',
         ),
 
-    # The stock vendor fragment advertises a Dolby Codec2 store (`default1`),
-    # but the corresponding service is not included in proprietary-files.txt.
-    # Do not let a future extraction reintroduce the phantom VINTF instance.
-    'vendor/etc/vintf/manifest/c2_manifest_vendor.xml': blob_fixup()
-        .regex_replace(r'\s*<fqname>@1\.0::IComponentStore/default1</fqname>[^\n]*\n', '\n'),
 
     ('vendor/lib/libqcodec2_core.so', 'vendor/lib64/libqcodec2_core.so'): blob_fixup()
         .add_needed('libcodec2_legacy_fence_shim.so'),
