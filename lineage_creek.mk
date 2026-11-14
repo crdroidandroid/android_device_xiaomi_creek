@@ -13,6 +13,11 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 # Inherit the hardware configuration for the actual device
 $(call inherit-product, device/xiaomi/creek/device.mk)
 
+# Google Apps
+$(call inherit-product, vendor/gapps/arm64/arm64-vendor.mk)
+
+# Google Apps
+
 # Inherit FastCharge configurations
 $(call inherit-product, packages/apps/FastCharge/fastcharge.mk)
 
