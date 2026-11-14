@@ -18,6 +18,8 @@ $(call inherit-product, vendor/gapps/arm64/arm64-vendor.mk)
 
 # Google Apps
 
+# Google Apps
+
 # Inherit FastCharge configurations
 $(call inherit-product, packages/apps/FastCharge/fastcharge.mk)
 
