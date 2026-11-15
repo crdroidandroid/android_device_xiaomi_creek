@@ -75,7 +75,8 @@ BOARD_PREBUILT_DTBOIMAGE            := $(KERNEL_PATH)/dtbs/dtbo.img
 BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
     androidboot.memcg=1 \
-    androidboot.usbcontroller=4e00000.dwc3
+    androidboot.usbcontroller=4e00000.dwc3 \
+    androidboot.vendor.qspa.modem=enabled
 
 # Basic kernel cmdline
 BOARD_KERNEL_CMDLINE := \
