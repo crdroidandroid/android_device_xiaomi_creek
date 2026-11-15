@@ -6,3 +6,6 @@ allow init vendor_sysfs_memory:file { write open };
 allow init vold_prepare_subdirs_exec:file getattr;
 allow init vendor_sysfs_battery_supply:file { open read getattr setattr};
 allow init hal_fingerprint_default:process ptrace;
+
+# XiaomiParts: bind-mount powerhint_manual.json
+allow init vendor_configs_file:file { read mounton };

@@ -83,6 +83,14 @@
     <string name="cpu_manager_cat_little">Little Cluster (Core 0-3)</string>
     <string name="cpu_manager_cat_big">Big Cluster (Core 4-7)</string>
     <string name="cpu_manager_cat_gpu">GPU</string>
+    <string name="cpu_manager_cat_preset">Profile</string>
+    <string name="cpu_manager_preset">Profile</string>
+    <string name="cpu_manager_preset_default">Default</string>
+    <string name="cpu_manager_preset_custom">Custom</string>
+    <string name="cpu_manager_preset_battery">Battery</string>
+    <string name="cpu_manager_preset_balanced">Balanced</string>
+    <string name="cpu_manager_preset_performance">Performance</string>
+    <string name="cpu_manager_tile_label">CPU Profile</string>
     <string name="cpu_manager_min_freq">Min frequency</string>
     <string name="cpu_manager_max_freq">Max frequency</string>
     <string name="cpu_manager_governor">Governor</string>
@@ -316,4 +324,8 @@
     <!-- HBM Thermal Throttling Lock -->
     <string name="hbm_thermal_lock_title">Prevent HBM thermal throttling</string>
     <string name="hbm_thermal_lock_summary">Keep high brightness mode active in direct sunlight even under elevated device temperatures</string>
+    <string name="cpu_manager_cat_reset">Reset</string>
+    <string name="cpu_manager_reset">Reset to system control</string>
+    <string name="cpu_manager_reset_summary">Restore stock values and let libperf manage CPU/GPU again</string>
+    <string name="cpu_manager_reset_done">Reset done, libperf is active again</string>
 </resources>

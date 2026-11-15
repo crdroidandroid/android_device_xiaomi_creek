@@ -1,0 +1,3 @@
+system_internal_prop(xiaomiparts_prop)
+set_prop(system_app, xiaomiparts_prop)
+get_prop(system_app, xiaomiparts_prop)

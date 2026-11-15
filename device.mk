@@ -733,3 +733,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libgrallocutils
 
+
+# CPU Manager
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/perf/powerhint_manual.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint_manual.json

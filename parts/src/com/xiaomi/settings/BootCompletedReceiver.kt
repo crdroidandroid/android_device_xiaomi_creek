@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.UserHandle
 import android.util.Log
+import com.xiaomi.settings.corecontrol.CpuManagerUtils
 import com.xiaomi.settings.display.ColorService
 import com.xiaomi.settings.battery.ChargingLimitService
 import com.xiaomi.settings.gamebar.PerfBoostUtils
@@ -55,6 +56,9 @@ class BootCompletedReceiver : BroadcastReceiver() {
 
         // Battery
         context.startServiceAsUser(Intent(context, ChargingLimitService::class.java), UserHandle.CURRENT)
+
+        // CPU Manager: re-apply saved min/max/governor/core state
+        CpuManagerUtils.scheduleRestore(context)
 
         // Per App Refresh Rate
         context.startServiceAsUser(Intent(context, RefreshService::class.java), UserHandle.CURRENT)

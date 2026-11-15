@@ -149,6 +149,18 @@
 
         <activity android:name=".touchsampling.TouchSamplingAppSelectorActivity" />
 
+        <!-- CPU Manager Tile Service -->
+        <service
+            android:name=".corecontrol.CpuManagerTileService"
+            android:label="@string/cpu_manager_tile_label"
+            android:icon="@drawable/ic_cpu_manager_tile"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
         <!-- Touch Sampling Tile Service -->
         <service
             android:name=".touchsampling.TouchSamplingTileService"

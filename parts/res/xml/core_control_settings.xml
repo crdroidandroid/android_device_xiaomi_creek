@@ -5,8 +5,20 @@
     android:title="@string/core_control_title">
 
     <PreferenceCategory
+        android:key="cat_preset"
+        android:title="@string/cpu_manager_cat_preset">
+
+        <ListPreference
+            android:key="cpu_preset"
+            android:title="@string/cpu_manager_preset"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="cat_cores"
-        android:title="@string/cpu_manager_cat_cores">
+        android:title="@string/cpu_manager_cat_cores"
+        app:allowDividerAbove="true">
 
         <androidx.preference.SwitchPreferenceCompat
             android:key="core_0"
@@ -117,6 +129,19 @@
             android:key="gpu_governor"
             android:title="@string/cpu_manager_governor"
             app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="cat_reset"
+        android:title="@string/cpu_manager_cat_reset"
+        app:allowDividerAbove="true">
+
+        <Preference
+            android:key="reset_perf"
+            android:title="@string/cpu_manager_reset"
+            android:summary="@string/cpu_manager_reset_summary"
+            android:persistent="false" />
 
     </PreferenceCategory>
 

@@ -39,3 +39,13 @@ on boot
     chmod 0664 /sys/devices/platform/goodix_ts.0/switch_report_rate
     chown system system /sys/class/touch/touch_dev/switch_report_rate
     chmod 0664 /sys/class/touch/touch_dev/switch_report_rate
+
+# Perf Manual: tukar powerhint biar libperfmgr gak nyentuh CPU/GPU
+on property:sys.xiaomiparts.perf_manual=1
+    umount /vendor/etc/powerhint.json
+    mount none /vendor/etc/powerhint_manual.json /vendor/etc/powerhint.json bind
+    restart vendor.power-hal-aidl
+
+on property:sys.xiaomiparts.perf_manual=0
+    umount /vendor/etc/powerhint.json
+    restart vendor.power-hal-aidl
