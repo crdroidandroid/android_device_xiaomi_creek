@@ -1,39 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/core_control_title">
 
-    <androidx.preference.SwitchPreferenceCompat
-        android:key="core_0"
-        android:title="@string/core_0" />
+    <PreferenceCategory
+        android:key="cat_cores"
+        android:title="@string/cpu_manager_cat_cores">
 
-    <androidx.preference.SwitchPreferenceCompat
-        android:key="core_1"
-        android:title="@string/core_1" />
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="core_0"
+            android:title="@string/core_0" />
 
-    <androidx.preference.SwitchPreferenceCompat
-        android:key="core_2"
-        android:title="@string/core_2" />
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="core_1"
+            android:title="@string/core_1" />
 
-    <androidx.preference.SwitchPreferenceCompat
-        android:key="core_3"
-        android:title="@string/core_3" />
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="core_2"
+            android:title="@string/core_2" />
 
-    <androidx.preference.SwitchPreferenceCompat
-        android:key="core_4"
-        android:title="@string/core_4" />
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="core_3"
+            android:title="@string/core_3" />
 
-    <androidx.preference.SwitchPreferenceCompat
-        android:key="core_5"
-        android:title="@string/core_5" />
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="core_4"
+            android:title="@string/core_4" />
 
-    <androidx.preference.SwitchPreferenceCompat
-        android:key="core_6"
-        android:title="@string/core_6" />
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="core_5"
+            android:title="@string/core_5" />
 
-    <androidx.preference.SwitchPreferenceCompat
-        android:key="core_7"
-        android:title="@string/core_7" />
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="core_6"
+            android:title="@string/core_6" />
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="core_7"
+            android:title="@string/core_7" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="cat_little"
+        android:title="@string/cpu_manager_cat_little"
+        app:allowDividerAbove="true">
+
+        <com.android.settingslib.widget.SliderPreference
+            android:key="little_min_freq"
+            android:title="@string/cpu_manager_min_freq"
+            android:defaultValue="0"
+            android:max="1"
+            app:min="0" />
+
+        <com.android.settingslib.widget.SliderPreference
+            android:key="little_max_freq"
+            android:title="@string/cpu_manager_max_freq"
+            android:defaultValue="0"
+            android:max="1"
+            app:min="0" />
+
+        <ListPreference
+            android:key="little_governor"
+            android:title="@string/cpu_manager_governor"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="cat_big"
+        android:title="@string/cpu_manager_cat_big"
+        app:allowDividerAbove="true">
+
+        <com.android.settingslib.widget.SliderPreference
+            android:key="big_min_freq"
+            android:title="@string/cpu_manager_min_freq"
+            android:defaultValue="0"
+            android:max="1"
+            app:min="0" />
+
+        <com.android.settingslib.widget.SliderPreference
+            android:key="big_max_freq"
+            android:title="@string/cpu_manager_max_freq"
+            android:defaultValue="0"
+            android:max="1"
+            app:min="0" />
+
+        <ListPreference
+            android:key="big_governor"
+            android:title="@string/cpu_manager_governor"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="cat_gpu"
+        android:title="@string/cpu_manager_cat_gpu"
+        app:allowDividerAbove="true">
+
+        <com.android.settingslib.widget.SliderPreference
+            android:key="gpu_min_freq"
+            android:title="@string/cpu_manager_min_freq"
+            android:defaultValue="0"
+            android:max="1"
+            app:min="0" />
+
+        <com.android.settingslib.widget.SliderPreference
+            android:key="gpu_max_freq"
+            android:title="@string/cpu_manager_max_freq"
+            android:defaultValue="0"
+            android:max="1"
+            app:min="0" />
+
+        <ListPreference
+            android:key="gpu_governor"
+            android:title="@string/cpu_manager_governor"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
 
     <com.android.settingslib.widget.FooterPreference
         android:key="footer"

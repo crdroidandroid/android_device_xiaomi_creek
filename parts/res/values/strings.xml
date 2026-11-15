@@ -65,12 +65,12 @@
     <string name="touch_sampling_mode_notification">High Touch Polling Rate is now active. This reduces touch input latency but may increase battery consumption</string>
 
     <!-- Core Control -->
-    <string name="core_control_title">Core Control</string>
-    <string name="core_control_summary">Manually enable or disable individual CPU cores</string>
+    <string name="core_control_title">CPU Manager</string>
+    <string name="core_control_summary">Manage CPU cores, GPU, frequencies and governors</string>
     <string name="cit_title">Xiaomi CIT</string>
     <string name="cit_summary">Hardware test and calibration</string>
     <string name="cit_not_installed">Xiaomi CIT is not installed</string>
-    <string name="core_control_description">Advanced CPU control. Turning off cores may save battery or thermal load, but may affect performance and stability.\n\nAt least two little cores must remain online at all times.</string>
+    <string name="core_control_description">Advanced CPU manager. Turning off cores may save battery or thermal load, but may affect performance and stability.\n\nAt least two little cores must remain online at all times.</string>
     <string name="core_0">Core 0 (Little)</string>
     <string name="core_1">Core 1 (Little)</string>
     <string name="core_2">Core 2 (Little)</string>
@@ -79,6 +79,14 @@
     <string name="core_5">Core 5 (Big)</string>
     <string name="core_6">Core 6 (Big)</string>
     <string name="core_7">Core 7 (Prime)</string>
+    <string name="cpu_manager_cat_cores">Core On/Off</string>
+    <string name="cpu_manager_cat_little">Little Cluster (Core 0-3)</string>
+    <string name="cpu_manager_cat_big">Big Cluster (Core 4-7)</string>
+    <string name="cpu_manager_cat_gpu">GPU</string>
+    <string name="cpu_manager_min_freq">Min frequency</string>
+    <string name="cpu_manager_max_freq">Max frequency</string>
+    <string name="cpu_manager_governor">Governor</string>
+    <string name="cpu_manager_unsupported">Not supported by this kernel</string>
 
     <!-- Charging Control -->
     <string name="charging_control_title">Charging Control</string>

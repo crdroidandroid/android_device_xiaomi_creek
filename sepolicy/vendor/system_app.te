@@ -36,3 +36,7 @@ allow system_app vendor_sysfs_touch_rate:file rw_file_perms;
 hwbinder_use(system_app)
 allow system_app vendor_hal_displayfeature_xiaomi_hwservice:hwservice_manager find;
 allow system_app vendor_hal_displayfeature_xiaomi_default:binder { call transfer };
+
+# XiaomiParts: CPU Manager -> GPU min/max/governor
+allow system_app vendor_sysfs_kgsl:dir search;
+allow system_app vendor_sysfs_kgsl:file rw_file_perms;
