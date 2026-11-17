@@ -132,19 +132,6 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:key="cat_reset"
-        android:title="@string/cpu_manager_cat_reset"
-        app:allowDividerAbove="true">
-
-        <Preference
-            android:key="reset_perf"
-            android:title="@string/cpu_manager_reset"
-            android:summary="@string/cpu_manager_reset_summary"
-            android:persistent="false" />
-
-    </PreferenceCategory>
-
     <com.android.settingslib.widget.FooterPreference
         android:key="footer"
         android:title="@string/core_control_description"

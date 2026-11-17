@@ -36,10 +36,6 @@ class CoreControlFragment : SettingsBasePreferenceFragment(), Preference.OnPrefe
         setupPreset()
 
         context?.let { CpuManagerUtils.ensureDefaults(it) }
-        findPreference<Preference>("reset_perf")?.setOnPreferenceClickListener {
-            doReset()
-            true
-        }
 
         for (i in 0 until CpuManagerUtils.NUM_CORES) {
             mCorePrefs[i] = findPreference("core_$i")
@@ -66,9 +62,8 @@ class CoreControlFragment : SettingsBasePreferenceFragment(), Preference.OnPrefe
     private fun setupPreset() {
         val presets = Preset.values()
         presetPref = findPreference<ListPreference>("cpu_preset")?.apply {
-            entries = (presets.map { getString(it.labelRes) } + getString(R.string.cpu_manager_reset))
-                .toTypedArray()
-            entryValues = (presets.map { it.id } + "reset").toTypedArray()
+            entries = presets.map { getString(it.labelRes) }.toTypedArray()
+            entryValues = presets.map { it.id }.toTypedArray()
             onPreferenceChangeListener = this@CoreControlFragment
         }
         updatePresetSummary()
@@ -183,11 +178,11 @@ class CoreControlFragment : SettingsBasePreferenceFragment(), Preference.OnPrefe
         val ctx = context ?: return false
 
         if (preference === presetPref) {
-            if (newValue == "reset") {
+            val p = Preset.fromId(newValue as? String) ?: return false
+            if (p == Preset.DEFAULT) {
                 doReset()
                 return false
             }
-            val p = Preset.fromId(newValue as? String) ?: return false
             CpuManagerUtils.applyPreset(ctx, p)
             uis.forEach { refreshDomain(it) }
             updatePresetSummary()

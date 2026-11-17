@@ -98,7 +98,7 @@ object CpuManagerUtils {
             Preset.BATTERY -> listOf("powersave")
             Preset.BALANCED -> listOf("schedutil")
             Preset.PERFORMANCE -> listOf("performance")
-            Preset.DEFAULT -> listOf("walt", "schedutil")
+            Preset.DEFAULT -> listOf("walt")
         }
     }
 
@@ -265,14 +265,22 @@ object CpuManagerUtils {
 
     fun ensureDefaults(ctx: Context) {
         val p = prefs(ctx)
-        if (p.getBoolean("cpum_def_saved", false)) return
+        if (p.getBoolean("cpum_def_v3", false)) return
         val e = p.edit()
         for (d in domains) {
-            e.putString(defKey(d, "min"), readFile(d.node(d.minName)))
+            // live min can be a boost value (min == max) -> use the real lowest step
+            val fr = readFreqs(d)
+            e.putString(
+                defKey(d, "min"),
+                if (fr.isNotEmpty()) fr.first().toString() else readFile(d.node(d.minName))
+            )
             e.putString(defKey(d, "max"), readFile(d.node(d.maxName)))
-            e.putString(defKey(d, "gov"), readFile(d.node(d.govName)))
+            // stock CPU governor is walt; the live one may be changed by an init script
+            val avail = readFile(d.node(d.govsName)).split(Regex("\\s+"))
+            val live = readFile(d.node(d.govName))
+            e.putString(defKey(d, "gov"), if (d.key != "gpu" && "walt" in avail) "walt" else live)
         }
-        e.putBoolean("cpum_def_saved", true).apply()
+        e.putBoolean("cpum_def_v3", true).apply()
     }
 
     /** Stock config back -> libperfmgr normal again; restore stock values, forget settings. */
@@ -287,7 +295,9 @@ object CpuManagerUtils {
                 val gov = p.getString(defKey(d, "gov"), "").orEmpty()
                 val min = p.getString(defKey(d, "min"), "")?.toLongOrNull()
                 val max = p.getString(defKey(d, "max"), "")?.toLongOrNull()
-                if (gov.isNotEmpty()) writeLocked(d.node(d.govName), gov)
+                // walt if the kernel offers it, otherwise the stock governor saved earlier
+                val dflt = applyGovernor(d, Preset.DEFAULT)
+                if (dflt == null && gov.isNotEmpty()) writeLocked(d.node(d.govName), gov)
                 if (min != null && max != null && min <= max) applyMinMax(d, min, max)
                 e.remove(d.minKey).remove(d.maxKey).remove(d.govKey)
             }
