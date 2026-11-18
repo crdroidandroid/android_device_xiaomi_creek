@@ -1,0 +1,34 @@
+cc_prebuilt_binary {
+    name: "vendor.azenith-service",
+    srcs: ["bin/vendor.azenith-service"],
+    stem: "vendor.azenith-service",
+    vendor: true,
+    shared_libs: ["liblog"],
+}
+
+android_app_import {
+    name: "BinderResolver",
+    apk: "apk/BinderResolver.apk",
+    presigned: true,
+    preprocessed: true,
+    privileged: true,
+    vendor: true,
+}
+
+aidl_interface {
+    name: "vendor.azenith",
+    srcs: ["vendor/azenith/IAZenithService.aidl"],
+    unstable: true,
+    vendor_available: true,
+    backend: {
+        java: {
+            enabled: true,
+        },
+        cpp: {
+            enabled: false,
+        },
+        ndk: {
+            enabled: false,
+        },
+    },
+}

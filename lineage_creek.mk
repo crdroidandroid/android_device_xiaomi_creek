@@ -13,6 +13,8 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 # Inherit the hardware configuration for the actual device
 $(call inherit-product, device/xiaomi/creek/device.mk)
 
+# Google Apps
+
 # Inherit FastCharge configurations
 $(call inherit-product, packages/apps/FastCharge/fastcharge.mk)
 
@@ -28,7 +30,7 @@ PRODUCT_DEVICE            := creek
 PRODUCT_MANUFACTURER      := Xiaomi
 PRODUCT_BRAND             := Redmi
 PRODUCT_MODEL             := Redmi 15 4G
-WITH_GMS := true
+WITH_GMS := false
 WITH_MICROG := false
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi

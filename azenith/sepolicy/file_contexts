@@ -1,0 +1,2 @@
+/vendor/bin/vendor\.azenith-service    u:object_r:azenith_exec:s0
+/data/vendor/AZenithInt(/.*)?          u:object_r:azenith_data_file:s0

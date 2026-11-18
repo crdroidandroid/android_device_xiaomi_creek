@@ -43,6 +43,18 @@ class XiaomiPartsFragment : SettingsBasePreferenceFragment() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.xiaomi_parts, rootKey)
 
+        findPreference<Preference>("parts_azenith")
+            ?.setOnPreferenceClickListener {
+                startActivity(
+                    Intent(
+                        context,
+                        com.xiaomi.settings.azenith.AZenithActivity::class.java
+                    )
+                )
+                true
+            }
+
+
         findPreference<Preference>(KEY_TOUCH_SAMPLING)?.isVisible = TouchSamplingUtils.isSupported()
 
         findPreference<Preference>(KEY_GAME_BAR)?.setOnPreferenceClickListener {

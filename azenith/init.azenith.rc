@@ -1,0 +1,16 @@
+service vendor.azenith-service /vendor/bin/vendor.azenith-service
+    class main
+    user root
+    group root system shell readproc sdcard_r sdcard_rw media_rw
+    capabilities SYS_NICE KILL SYS_ADMIN NET_ADMIN
+    disabled
+    socket zygote stream 660 root system
+
+on property:sys.boot_completed=1 && property:persist.sys.azenithIntg.state=1
+    start vendor.azenith-service
+
+on property:persist.sys.azenithIntg.state=1
+    start vendor.azenith-service
+
+on property:persist.sys.azenithIntg.state=0
+    stop vendor.azenith-service

@@ -1,0 +1,16 @@
+# Define the main AZenith service daemon
+service AZenith /vendor/bin/hw/vendor.azenith-service
+    # SELinux context for the service
+    seclabel u:r:azenith_service:s0
+	#seclabel u:r:init:s0
+    class main
+    user root
+    group root system shell readproc sdcard_r sdcard_rw media_rw
+    capabilities SYS_NICE DAC_OVERRIDE KILL SYS_ADMIN NET_ADMIN SYS_PTRACE
+    disabled
+    socket zygote stream 660 root system
+
+
+on property:sys.boot_completed=1 && property:persist.sys.azenithIntg.state=1
+    start AZenith
+	

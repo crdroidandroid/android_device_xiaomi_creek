@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<PreferenceScreen xmlns:ns0="http://schemas.android.com/apk/res/android" xmlns:ns1="http://schemas.android.com/apk/res-auto" ns0:title="@string/azenith_title">
+    <Preference ns0:key="azenith_header" ns1:layout="@layout/preference_azenith_header" ns0:selectable="false" ns1:iconSpaceReserved="false" />
+    <PreferenceCategory ns0:title="@string/azenith_cat_service" ns1:layout="@layout/preference_category_neko" ns1:iconSpaceReserved="false">
+        <androidx.preference.SwitchPreferenceCompat ns0:key="azenith_enable" ns0:title="@string/azenith_enable" ns0:summary="@string/azenith_enable_sum" ns0:persistent="false" ns1:iconSpaceReserved="false" />
+        <Preference ns0:key="azenith_status" ns0:title="@string/azenith_status" ns0:selectable="false" ns1:iconSpaceReserved="false" />
+        <Preference ns0:key="azenith_restart" ns0:title="@string/azenith_restart" ns0:summary="@string/azenith_restart_sum" ns1:iconSpaceReserved="false" />
+        <androidx.preference.SwitchPreferenceCompat ns0:key="debugmode" ns0:title="@string/azenith_debug" ns0:summary="@string/azenith_debug_sum" ns0:persistent="false" ns1:iconSpaceReserved="false" />
+    </PreferenceCategory>
+    <PreferenceCategory ns0:title="@string/azenith_cat_cpu" ns1:layout="@layout/preference_category_neko" ns1:iconSpaceReserved="false">
+        <ListPreference ns0:key="custom_default_cpu_gov" ns0:title="@string/azenith_g_custom_default_cpu_gov" ns0:persistent="false" ns1:useSimpleSummaryProvider="true" ns1:iconSpaceReserved="false" />
+        <ListPreference ns0:key="custom_powersave_cpu_gov" ns0:title="@string/azenith_g_custom_powersave_cpu_gov" ns0:persistent="false" ns1:useSimpleSummaryProvider="true" ns1:iconSpaceReserved="false" />
+        <ListPreference ns0:key="custom_performance_cpu_gov" ns0:title="@string/azenith_g_custom_performance_cpu_gov" ns0:persistent="false" ns1:useSimpleSummaryProvider="true" ns1:iconSpaceReserved="false" />
+        <ListPreference ns0:key="freqoffset" ns0:title="@string/azenith_freq" ns0:persistent="false" ns1:useSimpleSummaryProvider="true" ns1:iconSpaceReserved="false" ns0:entries="@array/azenith_freq_entries" ns0:entryValues="@array/azenith_freq_values" />
+    </PreferenceCategory>
+    <PreferenceCategory ns0:title="@string/azenith_cat_tweaks" ns1:layout="@layout/preference_category_neko" ns1:iconSpaceReserved="false">
+        <androidx.preference.SwitchPreferenceCompat ns0:key="litemode" ns0:title="@string/azenith_t_litemode" ns0:summary="@string/azenith_s_litemode" ns0:persistent="false" ns1:iconSpaceReserved="false" />
+        <androidx.preference.SwitchPreferenceCompat ns0:key="clearbg" ns0:title="@string/azenith_t_clearbg" ns0:summary="@string/azenith_s_clearbg" ns0:persistent="false" ns1:iconSpaceReserved="false" />
+        <androidx.preference.SwitchPreferenceCompat ns0:key="fstrim" ns0:title="@string/azenith_t_fstrim" ns0:summary="@string/azenith_s_fstrim" ns0:persistent="false" ns1:iconSpaceReserved="false" />
+        <androidx.preference.SwitchPreferenceCompat ns0:key="logd" ns0:title="@string/azenith_t_logd" ns0:summary="@string/azenith_s_logd" ns0:persistent="false" ns1:iconSpaceReserved="false" />
+        <androidx.preference.SwitchPreferenceCompat ns0:key="walttunes" ns0:title="@string/azenith_t_walttunes" ns0:summary="@string/azenith_s_walttunes" ns0:persistent="false" ns1:iconSpaceReserved="false" />
+        <androidx.preference.SwitchPreferenceCompat ns0:key="DThermal" ns0:title="@string/azenith_t_DThermal" ns0:summary="@string/azenith_s_DThermal" ns0:persistent="false" ns1:iconSpaceReserved="false" />
+        <androidx.preference.SwitchPreferenceCompat ns0:key="SFL" ns0:title="@string/azenith_t_SFL" ns0:summary="@string/azenith_s_SFL" ns0:persistent="false" ns1:iconSpaceReserved="false" />
+        <androidx.preference.SwitchPreferenceCompat ns0:key="malisched" ns0:title="@string/azenith_t_malisched" ns0:summary="@string/azenith_s_malisched" ns0:persistent="false" ns1:iconSpaceReserved="false" />
+        <androidx.preference.SwitchPreferenceCompat ns0:key="fpsged" ns0:title="@string/azenith_t_fpsged" ns0:summary="@string/azenith_s_fpsged" ns0:persistent="false" ns1:iconSpaceReserved="false" />
+        <androidx.preference.SwitchPreferenceCompat ns0:key="usefpsgo" ns0:title="@string/azenith_t_usefpsgo" ns0:summary="@string/azenith_s_usefpsgo" ns0:persistent="false" ns1:iconSpaceReserved="false" />
+        <androidx.preference.SwitchPreferenceCompat ns0:key="schedtunes" ns0:title="@string/azenith_t_schedtunes" ns0:summary="@string/azenith_s_schedtunes" ns0:persistent="false" ns1:iconSpaceReserved="false" />
+        <androidx.preference.SwitchPreferenceCompat ns0:key="justintime" ns0:title="@string/azenith_t_justintime" ns0:summary="@string/azenith_s_justintime" ns0:persistent="false" ns1:iconSpaceReserved="false" />
+        <androidx.preference.SwitchPreferenceCompat ns0:key="disabletrace" ns0:title="@string/azenith_t_disabletrace" ns0:summary="@string/azenith_s_disabletrace" ns0:persistent="false" ns1:iconSpaceReserved="false" />
+    </PreferenceCategory>
+    <PreferenceCategory ns0:title="@string/azenith_cat_display" ns1:layout="@layout/preference_category_neko" ns1:iconSpaceReserved="false">
+        <ListPreference ns0:key="renderer" ns0:title="@string/azenith_renderer" ns0:persistent="false" ns1:useSimpleSummaryProvider="true" ns1:iconSpaceReserved="false" ns0:entries="@array/azenith_renderer_entries" ns0:entryValues="@array/azenith_renderer_values" />
+        <ListPreference ns0:key="schemeconfig" ns0:title="@string/azenith_scheme" ns0:persistent="false" ns1:useSimpleSummaryProvider="true" ns1:iconSpaceReserved="false" ns0:entries="@array/azenith_scheme_entries" ns0:entryValues="@array/azenith_scheme_values" />
+    </PreferenceCategory>
+    <Preference ns0:key="azenith_gamelist" ns0:title="GameList" ns0:summary="Manage applications controlled by AZenith">
+        <intent ns0:action="android.intent.action.VIEW" ns0:targetPackage="com.xiaomi.settings" ns0:targetClass="com.xiaomi.settings.azenith.GameListActivity" />
+    </Preference>
+</PreferenceScreen>

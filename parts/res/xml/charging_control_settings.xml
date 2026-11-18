@@ -8,7 +8,7 @@
         android:defaultValue="false" />
 
     <PreferenceCategory
-        android:layout="@layout/preference_category_neko"
+        app:layout="@layout/preference_category_neko"
         android:title="Settings"
         app:allowDividerAbove="true">
 
@@ -23,7 +23,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:layout="@layout/preference_category_neko"
+        app:layout="@layout/preference_category_neko"
         android:title="@string/charging_power_category"
         app:allowDividerAbove="true">
 
@@ -38,7 +38,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:layout="@layout/preference_category_neko"
+        app:layout="@layout/preference_category_neko"
         android:title="@string/charge_bypass_title"
         app:allowDividerAbove="true">
 

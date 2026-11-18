@@ -737,3 +737,12 @@ PRODUCT_PACKAGES += \
 # CPU Manager
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/perf/powerhint_manual.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint_manual.json
+
+# AZenith integration
+PRODUCT_PACKAGES += \
+    vendor.azenith-service \
+    BinderResolver
+
+# AZenith init configuration
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/azenith/init.azenith.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.azenith.rc

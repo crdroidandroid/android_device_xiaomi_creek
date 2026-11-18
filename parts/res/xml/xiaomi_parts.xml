@@ -5,12 +5,12 @@
 
     <Preference
         android:key="neko_header"
-        android:layout="@layout/preference_neko_header"
+        app:layout="@layout/preference_neko_header"
         android:selectable="false"
         app:iconSpaceReserved="false" />
 
     <PreferenceCategory
-        android:layout="@layout/preference_category_neko"
+        app:layout="@layout/preference_category_neko"
         android:title="@string/parts_settings_category_title">
 
         <Preference
@@ -19,7 +19,13 @@
             android:summary="@string/game_bar_summary"
             android:icon="@drawable/ic_gamebar" />
 
-        <Preference
+                <Preference
+            android:key="parts_azenith"
+            android:title="@string/azenith_title"
+            android:summary="@string/azenith_summary"
+            android:icon="@drawable/ic_azenith" />
+
+<Preference
             android:key="parts_core_control"
             android:title="@string/core_control_title"
             android:summary="@string/core_control_summary"
@@ -40,7 +46,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:layout="@layout/preference_category_neko"
+        app:layout="@layout/preference_category_neko"
         android:title="@string/parts_category_display"
         app:allowDividerAbove="true"
         app:iconSpaceReserved="false">
@@ -79,7 +85,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:layout="@layout/preference_category_neko"
+        app:layout="@layout/preference_category_neko"
         android:title="@string/parts_category_audio"
         app:allowDividerAbove="true"
         app:iconSpaceReserved="false">
@@ -99,7 +105,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:layout="@layout/preference_category_neko"
+        app:layout="@layout/preference_category_neko"
         android:title="@string/parts_category_about"
         app:allowDividerAbove="true"
         app:iconSpaceReserved="false">

@@ -401,3 +401,4 @@ endif
 
 # Dolby Vision: C2 HAL manifest
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/hidl/c2_manifest_vendor.xml
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/azenith/sepolicy

@@ -5,7 +5,7 @@
     android:title="@string/core_control_title">
 
     <PreferenceCategory
-        android:layout="@layout/preference_category_neko"
+        app:layout="@layout/preference_category_neko"
         android:key="cat_preset"
         android:title="@string/cpu_manager_cat_preset">
 
@@ -17,7 +17,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:layout="@layout/preference_category_neko"
+        app:layout="@layout/preference_category_neko"
         android:key="cat_cores"
         android:title="@string/cpu_manager_cat_cores"
         app:allowDividerAbove="true">
@@ -57,7 +57,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:layout="@layout/preference_category_neko"
+        app:layout="@layout/preference_category_neko"
         android:key="cat_little"
         android:title="@string/cpu_manager_cat_little"
         app:allowDividerAbove="true">
@@ -84,7 +84,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:layout="@layout/preference_category_neko"
+        app:layout="@layout/preference_category_neko"
         android:key="cat_big"
         android:title="@string/cpu_manager_cat_big"
         app:allowDividerAbove="true">
@@ -111,7 +111,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:layout="@layout/preference_category_neko"
+        app:layout="@layout/preference_category_neko"
         android:key="cat_gpu"
         android:title="@string/cpu_manager_cat_gpu"
         app:allowDividerAbove="true">

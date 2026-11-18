@@ -1,0 +1,46 @@
+type azenith, domain;
+type azenith_exec, exec_type, vendor_file_type, file_type;
+type azenith_data_file, file_type, data_file_type;
+
+init_daemon_domain(azenith)
+
+binder_use(azenith)
+binder_service(azenith)
+
+allow azenith self:capability {
+    sys_nice
+    dac_override
+    kill
+    sys_admin
+    net_admin
+    sys_ptrace
+};
+
+allow azenith azenith_data_file:dir {
+    create
+    getattr
+    open
+    read
+    write
+    search
+    add_name
+    remove_name
+};
+
+allow azenith azenith_data_file:file {
+    create
+    getattr
+    open
+    read
+    write
+    append
+    unlink
+};
+
+allow azenith azenith_data_file:lnk_file {
+    create
+    read
+    getattr
+};
+
+allow azenith self:unix_stream_socket create_stream_socket_perms;
