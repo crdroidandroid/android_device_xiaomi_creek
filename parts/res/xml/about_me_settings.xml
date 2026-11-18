@@ -10,6 +10,7 @@
 
     <!-- Forker -->
     <PreferenceCategory
+        android:layout="@layout/preference_category_neko"
         android:title="@string/about_forker_category"
         app:iconSpaceReserved="false">
 
@@ -36,6 +37,7 @@
 
     <!-- Original Developer -->
     <PreferenceCategory
+        android:layout="@layout/preference_category_neko"
         android:title="@string/about_me_dev_category"
         app:allowDividerAbove="true"
         app:iconSpaceReserved="false">
@@ -69,6 +71,7 @@
 
     <!-- Device Information -->
     <PreferenceCategory
+        android:layout="@layout/preference_category_neko"
         android:title="@string/about_device_category"
         app:allowDividerAbove="true"
         app:iconSpaceReserved="false">

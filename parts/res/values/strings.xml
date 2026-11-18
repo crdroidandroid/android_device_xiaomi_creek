@@ -328,4 +328,5 @@
     <string name="cpu_manager_reset">Reset to system control</string>
     <string name="cpu_manager_reset_summary">Restore stock values and let libperf manage CPU/GPU again</string>
     <string name="cpu_manager_reset_done">Reset done, libperf is active again</string>
+    <string name="neko_header_summary">Kernel, display &amp; performance tweaks</string>
 </resources>

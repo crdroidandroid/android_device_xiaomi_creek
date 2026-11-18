@@ -59,6 +59,7 @@
 
         <!-- Accent & Widget Controls -->
         <item name="colorAccent">@color/neko_accent</item>
+        <item name="android:colorControlNormal">@color/neko_primary</item>
         <item name="android:colorControlActivated">@color/neko_primary</item>
         <item name="android:colorControlHighlight">@color/neko_accent_ripple</item>
         <item name="android:statusBarColor">@color/neko_background</item>

@@ -3,7 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <Preference
+        android:key="neko_header"
+        android:layout="@layout/preference_neko_header"
+        android:selectable="false"
+        app:iconSpaceReserved="false" />
+
     <PreferenceCategory
+        android:layout="@layout/preference_category_neko"
         android:title="@string/parts_settings_category_title">
 
         <Preference
@@ -33,6 +40,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:layout="@layout/preference_category_neko"
         android:title="@string/parts_category_display"
         app:allowDividerAbove="true"
         app:iconSpaceReserved="false">
@@ -71,6 +79,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:layout="@layout/preference_category_neko"
         android:title="@string/parts_category_audio"
         app:allowDividerAbove="true"
         app:iconSpaceReserved="false">
@@ -90,6 +99,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:layout="@layout/preference_category_neko"
         android:title="@string/parts_category_about"
         app:allowDividerAbove="true"
         app:iconSpaceReserved="false">

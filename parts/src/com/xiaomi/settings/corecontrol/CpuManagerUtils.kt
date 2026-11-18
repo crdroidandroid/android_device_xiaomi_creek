@@ -265,7 +265,7 @@ object CpuManagerUtils {
 
     fun ensureDefaults(ctx: Context) {
         val p = prefs(ctx)
-        if (p.getBoolean("cpum_def_v3", false)) return
+        if (p.getBoolean("cpum_def_v4", false)) return
         val e = p.edit()
         for (d in domains) {
             // live min can be a boost value (min == max) -> use the real lowest step
@@ -274,13 +274,13 @@ object CpuManagerUtils {
                 defKey(d, "min"),
                 if (fr.isNotEmpty()) fr.first().toString() else readFile(d.node(d.minName))
             )
-            e.putString(defKey(d, "max"), readFile(d.node(d.maxName)))
+            e.putString(defKey(d, "max"), if (fr.isNotEmpty()) fr.last().toString() else readFile(d.node(d.maxName)))
             // stock CPU governor is walt; the live one may be changed by an init script
             val avail = readFile(d.node(d.govsName)).split(Regex("\\s+"))
             val live = readFile(d.node(d.govName))
             e.putString(defKey(d, "gov"), if (d.key != "gpu" && "walt" in avail) "walt" else live)
         }
-        e.putBoolean("cpum_def_v3", true).apply()
+        e.putBoolean("cpum_def_v4", true).apply()
     }
 
     /** Stock config back -> libperfmgr normal again; restore stock values, forget settings. */
