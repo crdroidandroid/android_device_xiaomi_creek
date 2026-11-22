@@ -122,7 +122,7 @@ ro.vendor.audio.game.mode=true
 # Bluetooth
 persist.bluetooth.a2dp_offload.disabled=true
 persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
-persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac-aptxadaptive 
+persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac-aptxadaptive
 persist.vendor.qcom.bluetooth.aac_frm_ctl.enabled=true
 persist.vendor.qcom.bluetooth.aac_vbr_ctl.enabled=true
 persist.vendor.qcom.bluetooth.a2dp_mcast_test.enabled=false
@@ -282,7 +282,7 @@ persist.vendor.sensors.enable.bypass_worker=true
 persist.vendor.sensors.enable.rt_task=false
 persist.vendor.sensors.hal_trigger_ssr=false
 persist.vendor.sensors.support_direct_channel=false
-ro.vendor.sensors.xiaomi.udfps=true
+ro.vendor.sensors.xiaomi.udfps=false
 
 # SurfaceFlinger
 debug.sf.enable_hwc_vds=0
@@ -323,7 +323,7 @@ ro.surface_flinger.wcg_composition_dataspace=143261696
 ro.surface_flinger.clear_slots_with_set_layer_buffer=true
 ro.surface_flinger.uclamp.min=328
 ro.surface_flinger.use_content_detection_for_refresh_rate=true
-ro.surface_flinger.enable_frame_rate_override=false
+ro.surface_flinger.enable_frame_rate_override=true
 
 # USB
 persist.sys.usb.config=none

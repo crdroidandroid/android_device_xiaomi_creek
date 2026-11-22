@@ -30,11 +30,10 @@
             <meta-data android:name="com.android.settings.summary" android:resource="@string/xiaomi_parts_summary" />
         </activity>
         <activity android:name=".gamebar.GameBarSettingsActivity" android:label="@string/game_bar_title" android:theme="@style/Theme.NekoParts" android:exported="false" />
-        <service android:name=".thermal.ThermalService" android:permission="ThermalService">
+        <service android:name=".thermal.ThermalService" android:exported="false">
         </service>
         <activity android:name=".thermal.ThermalSettingsActivity" android:label="@string/thermal_title" android:theme="@style/Theme.NekoParts.Thermal" android:exported="true" />
         <activity android:name=".gamebar.GameBarAppSelectorActivity" />
-        <activity android:name=".gamebar.GameBarAppRemoverActivity" />
         <service android:name=".gamebar.GameBarTileService" android:label="@string/game_bar_tile_label" android:icon="@drawable/ic_gamebar" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE" android:exported="true">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
@@ -81,7 +80,7 @@
         </service>
         <activity android:name=".speaker.ClearSpeakerActivity" android:label="@string/clear_speaker_title" android:theme="@style/Theme.NekoParts" android:exported="true" />
         <activity android:name=".refreshrate.RefreshActivity" android:label="@string/refresh_title" android:theme="@style/Theme.NekoParts" android:exported="false" />
-        <service android:name=".refreshrate.RefreshService" android:exported="true" android:permission="RefreshService">
+        <service android:name=".refreshrate.RefreshService" android:exported="false">
         </service>
         <activity android:name=".TileHandlerActivity" android:exported="true" android:noHistory="true" android:theme="@android:style/Theme.NoDisplay">
             <intent-filter>

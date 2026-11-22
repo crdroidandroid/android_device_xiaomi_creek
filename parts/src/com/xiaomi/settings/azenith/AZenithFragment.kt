@@ -88,11 +88,12 @@ class AZenithFragment : SettingsBasePreferenceFragment() {
     }
 
     private fun refreshStatus() {
-        val state = SystemProperties.get(PROP_STATE, "0")
+        val svcState = SystemProperties.get("init.svc.vendor.azenith-service", "stopped")
+        val enabled = SystemProperties.get(PROP_STATE, "0") == "1"
 
-        val summary = when (state) {
-            "1" -> R.string.azenith_status_on
-            "stopped" -> R.string.azenith_status_restarting
+        val summary = when {
+            svcState == "running" -> R.string.azenith_status_on
+            svcState == "restarting" || (enabled && svcState == "stopped") -> R.string.azenith_status_restarting
             else -> R.string.azenith_status_off
         }
 

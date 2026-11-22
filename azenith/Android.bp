@@ -4,15 +4,8 @@ cc_prebuilt_binary {
     stem: "vendor.azenith-service",
     vendor: true,
     shared_libs: ["liblog"],
-}
-
-android_app_import {
-    name: "BinderResolver",
-    apk: "apk/BinderResolver.apk",
-    presigned: true,
-    preprocessed: true,
-    privileged: true,
-    vendor: true,
+    init_rc: ["init.azenith.rc"],
+    vintf_fragments: ["vendor.azenith.xml"],
 }
 
 aidl_interface {

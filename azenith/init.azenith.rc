@@ -1,16 +1,18 @@
+on post-fs-data
+    mkdir /data/vendor/AZenithInt 0775 root system
+    mkdir /data/vendor/AZenithInt/API 0775 root system
+    mkdir /data/vendor/AZenithInt/gamelist 0775 root system
+    restorecon_recursive /data/vendor/AZenithInt
+
 service vendor.azenith-service /vendor/bin/vendor.azenith-service
     class main
     user root
     group root system shell readproc sdcard_r sdcard_rw media_rw
     capabilities SYS_NICE KILL SYS_ADMIN NET_ADMIN
     disabled
-    socket zygote stream 660 root system
 
 on property:sys.boot_completed=1 && property:persist.sys.azenithIntg.state=1
     start vendor.azenith-service
 
-on property:persist.sys.azenithIntg.state=1
-    start vendor.azenith-service
-
-on property:persist.sys.azenithIntg.state=0
+on property:sys.boot_completed=1 && property:persist.sys.azenithIntg.state=0
     stop vendor.azenith-service

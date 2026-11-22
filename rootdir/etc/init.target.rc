@@ -93,6 +93,7 @@ service vendor.zram-setup /vendor/bin/sh /vendor/bin/init.creek.zram.sh
     class late_start
     user root
     group root system wakelock graphics
+    seclabel u:r:vendor_qti_init_shell:s0
     disabled
     oneshot
 

@@ -42,6 +42,7 @@ TARGET_BOARD_SUFFIX                := _515
 TARGET_BOARD_PLATFORM              := bengal
 BOARD_USES_QCOM_HARDWARE           := true
 TARGET_BOOTLOADER_BOARD_NAME       := bengal
+BOARD_SHIPPING_API_LEVEL           := 33
 
 
 # ==============================================
@@ -290,6 +291,7 @@ include device/xiaomi/sepolicy/SEPolicy.mk
 include device/lineage/sepolicy/libperfmgr/sepolicy.mk
 
 BOARD_VENDOR_SEPOLICY_DIRS                        += $(DEVICE_PATH)/sepolicy/vendor
+SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS                   += $(DEVICE_PATH)/sepolicy/public
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS                  += $(DEVICE_PATH)/sepolicy/private
 
 
@@ -393,7 +395,7 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY  := true
 $(shell mkdir -p $(OUT_DIR)/target/product/$(TARGET_DEVICE)/obj/KERNEL_OBJ/usr)
 
 # MiuiCamera
-TARGET_SHIPS_MIUICAMERA ?= true
+TARGET_SHIPS_MIUICAMERA ?= false
 
 ifeq ($(TARGET_SHIPS_MIUICAMERA),true)
 -include device/xiaomi/creek-miuicamera/BoardConfig.mk

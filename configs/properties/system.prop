@@ -1,4 +1,4 @@
-# Infinity Device Information
+# Device Information
 ro.product.marketname=Redmi 15 / POCO M7
 
 # Media
@@ -35,3 +35,6 @@ debug.egl.callstack=false
 debug.egl.trace=0
 debug.hwui.skip_eglmanager_telemetry=true
 
+
+# AZenith
+persist.sys.azenithIntg.state=1

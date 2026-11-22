@@ -486,7 +486,7 @@ PRODUCT_PACKAGES += \
 
 # Perf
 PRODUCT_PACKAGES += \
-    libqti-perfd-client\
+    libqti-perfd-client \
     vendor.qti.hardware.perf@2.3.vendor
 
 PRODUCT_COPY_FILES += \
@@ -532,8 +532,7 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.voice-V1-ndk.vendor \
     libprotobuf-cpp-full-3.9.1-vendorcompat \
     libprotobuf-cpp-lite-3.9.1-vendorcompat \
-    librmnetctl \
-    libsqlite.vendor
+    librmnetctl
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -557,9 +556,7 @@ PRODUCT_PACKAGES += \
     libhidlbase_shim
 
 # Shipping API
-BOARD_SHIPPING_API_LEVEL := 33
-SHIPPING_API_LEVEL := $(BOARD_API_LEVEL)
-PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
+PRODUCT_SHIPPING_API_LEVEL := 33
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -693,7 +690,7 @@ PRODUCT_PACKAGES += \
     XiaomiParts
 
 # MiuiCamera
-TARGET_SHIPS_MIUICAMERA := false
+TARGET_SHIPS_MIUICAMERA ?= false
 
 ifeq ($(TARGET_SHIPS_MIUICAMERA),true)
 ifneq ($(wildcard vendor/xiaomi/creek-miuicamera/creek-miuicamera-vendor.mk),)
@@ -740,9 +737,4 @@ PRODUCT_COPY_FILES += \
 
 # AZenith integration
 PRODUCT_PACKAGES += \
-    vendor.azenith-service \
-    BinderResolver
-
-# AZenith init configuration
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/azenith/init.azenith.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.azenith.rc
+    vendor.azenith-service

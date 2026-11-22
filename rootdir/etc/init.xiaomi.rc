@@ -6,7 +6,7 @@
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
     mkdir /data/vendor/misc/xiaomi-fp 0770 system system
-    mkdir /persist/xioami-fp 0770 system system
+    mkdir /mnt/vendor/persist/xiaomi-fp 0770 system system
     mkdir /mnt/vendor/persist/mi_fp 0770 system system
     mkdir /data/vendor/fpc 0770 system system
     mkdir /data/vendor/fpdump 0770 system system
@@ -18,7 +18,6 @@ on post-fs-data
     mkdir /data/vendor/nfc 0770 nfc nfc
 
 on post-fs
-    start stflashtool
     setprop ro.vendor.se.type HCE,UICC
     setprop ro.nfc.port I2C
 
@@ -50,7 +49,6 @@ on property:sys.boot_completed=1
 # NFC is served by the stock NXP AIDL service (android.hardware.nfc-service.nxp,
 # started by vendor nfc-service-nxp.rc on o19ap/o19aperp SKUs). The previous ST
 # service targeted the wrong controller family and never bound.
-    disabled
 
 service vendor.goodix-events /vendor/bin/init.goodix.events.sh
     class late_start

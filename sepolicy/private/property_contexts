@@ -8,3 +8,5 @@ ro.fota.oem                    u:object_r:exported_system_prop:s0
 ro.wlan.bdf                    u:object_r:vendor_public_vendor_default_prop:s0
 ro.wlan.chip                   u:object_r:vendor_public_vendor_default_prop:s0
 sys.xiaomiparts.               u:object_r:xiaomiparts_prop:s0
+persist.sys.azenithIntg.       u:object_r:azenith_prop:s0
+persist.sys.azenithConfIntg.   u:object_r:azenith_prop:s0
