@@ -8,6 +8,7 @@ package com.xiaomi.settings.azenith
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.os.ServiceManager
 import android.os.SystemProperties
 import android.widget.Toast
 import androidx.preference.ListPreference
@@ -88,18 +89,22 @@ class AZenithFragment : SettingsBasePreferenceFragment() {
     }
 
     private fun refreshStatus() {
-        val svcState = SystemProperties.get("init.svc.vendor.azenith-service", "stopped")
-        val enabled = SystemProperties.get(PROP_STATE, "0") == "1"
+     val enabled = SystemProperties.get(PROP_STATE, "0") == "1"
+     val alive = try {
+         ServiceManager.checkService(SERVICE_NAME)?.pingBinder() == true
+     } catch (_: Exception) {
+         false
+     }
 
-        val summary = when {
-            svcState == "running" -> R.string.azenith_status_on
-            svcState == "restarting" || (enabled && svcState == "stopped") -> R.string.azenith_status_restarting
-            else -> R.string.azenith_status_off
-        }
+     val summary = when {
+         alive -> R.string.azenith_status_on
+         enabled -> R.string.azenith_status_restarting
+         else -> R.string.azenith_status_off
+     }
 
-        findPreference<Preference>(KEY_STATUS)
-            ?.setSummary(summary)
-    }
+     findPreference<Preference>(KEY_STATUS)
+         ?.setSummary(summary)
+ }
 
     private fun restartService() {
         Toast.makeText(
@@ -230,6 +235,7 @@ class AZenithFragment : SettingsBasePreferenceFragment() {
         const val KEY_ENABLE = "azenith_enable"
         const val KEY_RESTART = "azenith_restart"
         const val KEY_STATUS = "azenith_status"
+        const val SERVICE_NAME = "vendor.azenith.IAZenithService/default"
 
         const val PROP_STATE =
             "persist.sys.azenithIntg.state"

@@ -1,0 +1,4 @@
+type azenith, domain, coredomain, mlstrustedsubject;
+type azenith_exec, exec_type, system_file_type, file_type;
+type azenith_data_file, file_type, data_file_type, core_data_file_type;
+type vendor_azenith_service, service_manager_type;

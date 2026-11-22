@@ -2,10 +2,9 @@ cc_prebuilt_binary {
     name: "vendor.azenith-service",
     srcs: ["bin/vendor.azenith-service"],
     stem: "vendor.azenith-service",
-    vendor: true,
+    system_ext_specific: true,
     shared_libs: ["liblog"],
     init_rc: ["init.azenith.rc"],
-    vintf_fragments: ["vendor.azenith.xml"],
 }
 
 aidl_interface {

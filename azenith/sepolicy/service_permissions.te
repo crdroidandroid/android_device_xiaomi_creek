@@ -1,6 +1,0 @@
-add_service(azenith, vendor_azenith_service)
-
-# Allow XiaomiParts (system_app) to bind to IAZenithService
-allow system_app vendor_azenith_service:service_manager find;
-binder_call(system_app, azenith)
-binder_call(azenith, system_app)

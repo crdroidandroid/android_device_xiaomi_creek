@@ -1,0 +1,4 @@
+allow azenith vendor_sysfs_kgsl:dir r_dir_perms;
+allow azenith vendor_sysfs_kgsl:file { rw_file_perms setattr };
+allow azenith vendor_sysfs_devfreq:dir r_dir_perms;
+allow azenith vendor_sysfs_devfreq:file { rw_file_perms setattr };

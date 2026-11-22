@@ -1,0 +1,58 @@
+init_daemon_domain(azenith)
+
+binder_use(azenith)
+binder_service(azenith)
+add_service(azenith, vendor_azenith_service)
+
+# XiaomiParts (system_app) <-> AZenith
+allow system_app vendor_azenith_service:service_manager find;
+binder_call(system_app, azenith)
+
+# AZenith <-> system_server (AMS, PMS, Power, IProcessObserver callbacks)
+allow azenith {
+    activity_service
+    display_service
+    notification_service
+    package_service
+    power_service
+}:service_manager find;
+binder_call(azenith, system_server)
+binder_call(system_server, azenith)
+
+allow azenith self:capability { sys_nice kill sys_admin net_admin };
+allow azenith self:unix_stream_socket create_stream_socket_perms;
+
+# /data/system/AZenithInt storage
+allow azenith system_data_file:dir search;
+allow azenith azenith_data_file:dir create_dir_perms;
+allow azenith azenith_data_file:file { create_file_perms lock map };
+allow azenith azenith_data_file:lnk_file create_file_perms;
+
+# Embedded BinderResolver via app_process64 + shell helpers
+allow azenith zygote_exec:file rx_file_perms;
+allow azenith shell_exec:file rx_file_perms;
+allow azenith toolbox_exec:file rx_file_perms;
+allow azenith apex_module_data_file:dir { getattr search };
+
+# Properties read by daemon & ART runtime
+get_prop(azenith, azenith_prop)
+get_prop(azenith, dalvik_config_prop)
+get_prop(azenith, dalvik_runtime_prop)
+dontaudit azenith default_prop:file { getattr map open read };
+
+# Read foreground app /proc/<pid>/cmdline; silence background daemon /proc scan spam
+r_dir_file(azenith, appdomain)
+dontaudit azenith domain:dir { getattr search open read };
+dontaudit azenith domain:file { getattr open read };
+
+# Core proc & sysfs tuning
+allow azenith proc:dir r_dir_perms;
+allow azenith proc:file getattr;
+dontaudit azenith proc:file r_file_perms;
+allow azenith proc_stat:file r_file_perms;
+allow azenith proc_meminfo:file r_file_perms;
+allow azenith proc_cpuinfo:file r_file_perms;
+allow azenith sysfs_devices_system_cpu:dir r_dir_perms;
+allow azenith sysfs_devices_system_cpu:file { rw_file_perms setattr };
+allow azenith sysfs_thermal:dir r_dir_perms;
+allow azenith sysfs_thermal:file rw_file_perms;

@@ -12,4 +12,8 @@
     vendor_hal_displayfeature_xiaomi_default
     vendor_hal_displayfeature_xiaomi_default_exec
     vendor_hal_displayfeature_xiaomi_hwservice
-    displayfeature))
+    displayfeature
+    azenith_prop
+    azenith_exec
+    azenith_data_file
+    vendor_azenith_service))

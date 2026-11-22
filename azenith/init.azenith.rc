@@ -1,10 +1,10 @@
 on post-fs-data
-    mkdir /data/vendor/AZenithInt 0775 root system
-    mkdir /data/vendor/AZenithInt/API 0775 root system
-    mkdir /data/vendor/AZenithInt/gamelist 0775 root system
-    restorecon_recursive /data/vendor/AZenithInt
+    mkdir /data/system/AZenithInt 0775 root system
+    mkdir /data/system/AZenithInt/API 0775 root system
+    mkdir /data/system/AZenithInt/gamelist 0775 root system
+    restorecon_recursive /data/system/AZenithInt
 
-service vendor.azenith-service /vendor/bin/vendor.azenith-service
+service vendor.azenith-service /system_ext/bin/vendor.azenith-service
     class main
     user root
     group root system shell readproc sdcard_r sdcard_rw media_rw
