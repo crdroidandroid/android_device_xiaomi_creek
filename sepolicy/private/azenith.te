@@ -16,6 +16,7 @@ allow azenith {
     notification_service
     package_service
     power_service
+    window_service
     mount_service
     thermal_service
     surfaceflinger_service
@@ -89,3 +90,24 @@ allow azenith proc_pid_max:file r_file_perms;
 dontaudit azenith build_attestation_prop:file { getattr open read map };
 dontaudit azenith { debugfs_tracing debugfs_tracing_debug }:dir { getattr open read search };
 dontaudit azenith { debugfs_tracing debugfs_tracing_debug }:file { getattr open read write setattr };
+
+# ART dalvik-cache read, tmpfs/memfd, and TCP/perf/sched proc tuning
+r_dir_file(azenith, dalvikcache_data_file)
+allow azenith proc_net:dir r_dir_perms;
+allow azenith proc_net:file rw_file_perms;
+dontaudit azenith proc_net:file setattr;
+allow azenith proc_perf:file rw_file_perms;
+dontaudit azenith proc_perf:file setattr;
+allow azenith proc_sched:file rw_file_perms;
+dontaudit azenith proc_sched:file setattr;
+allow azenith tmpfs:file rw_file_perms;
+allow azenith proc_page_cluster:file rw_file_perms;
+dontaudit azenith proc_page_cluster:file setattr;
+
+# ART runtime helpers, TCP/perf/sched/VM proc tuning, and neverallow-safe silencing
+r_dir_file(azenith, apex_art_data_file)
+dontaudit azenith apex_art_data_file:file execute;
+get_prop(azenith, odsign_prop)
+dontaudit azenith tmpfs:file execute;
+dontaudit azenith self:anon_inode { create getattr ioctl read write };
+dontaudit azenith vdc_exec:file { getattr open read execute execute_no_trans };
