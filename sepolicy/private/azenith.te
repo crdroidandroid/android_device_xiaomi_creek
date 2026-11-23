@@ -8,9 +8,10 @@ add_service(azenith, vendor_azenith_service)
 allow system_app vendor_azenith_service:service_manager find;
 binder_call(system_app, azenith)
 
-# AZenith <-> system_server (AMS, PMS, Power, IProcessObserver callbacks)
+# AZenith <-> system_server (AMS, PMS, Power, Display, BatteryProperties)
 allow azenith {
     activity_service
+    batteryproperties_service
     display_service
     notification_service
     package_service
@@ -28,10 +29,11 @@ allow azenith azenith_data_file:dir create_dir_perms;
 allow azenith azenith_data_file:file { create_file_perms lock map };
 allow azenith azenith_data_file:lnk_file create_file_perms;
 
-# Embedded BinderResolver via app_process64 + shell helpers
+# Embedded BinderResolver via app_process64 + /system/bin/am & shell helpers
 allow azenith zygote_exec:file rx_file_perms;
 allow azenith shell_exec:file rx_file_perms;
 allow azenith toolbox_exec:file rx_file_perms;
+allow azenith system_file:file rx_file_perms;
 allow azenith apex_module_data_file:dir { getattr search };
 
 # Properties read by daemon & ART runtime
@@ -45,14 +47,26 @@ r_dir_file(azenith, appdomain)
 dontaudit azenith domain:dir { getattr search open read };
 dontaudit azenith domain:file { getattr open read };
 
-# Core proc & sysfs tuning
+# Core proc & sysfs tuning (neverallow-safe for coredomain)
 allow azenith proc:dir r_dir_perms;
 allow azenith proc:file getattr;
-dontaudit azenith proc:file r_file_perms;
+dontaudit azenith proc:file { r_file_perms write };
 allow azenith proc_stat:file r_file_perms;
 allow azenith proc_meminfo:file r_file_perms;
 allow azenith proc_cpuinfo:file r_file_perms;
+allow azenith proc_drop_caches:file rw_file_perms;
+dontaudit azenith proc_drop_caches:file setattr;
+
+allow azenith sysfs:dir { open read search getattr };
+allow azenith sysfs:file getattr;
+dontaudit azenith sysfs:file { open read write setattr };
 allow azenith sysfs_devices_system_cpu:dir r_dir_perms;
 allow azenith sysfs_devices_system_cpu:file { rw_file_perms setattr };
 allow azenith sysfs_thermal:dir r_dir_perms;
-allow azenith sysfs_thermal:file rw_file_perms;
+allow azenith sysfs_thermal:file { rw_file_perms setattr };
+dontaudit azenith proc_panic:file { getattr open read write setattr };
+dontaudit azenith property_socket:sock_file write;
+
+# Device-mapper block devices (/sys/block/dm-*) scanned during I/O tuning
+allow azenith sysfs_dm:dir r_dir_perms;
+allow azenith sysfs_dm:file { rw_file_perms setattr };
