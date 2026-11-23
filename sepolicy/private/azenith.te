@@ -16,9 +16,11 @@ allow azenith {
     notification_service
     package_service
     power_service
+    surfaceflinger_service
 }:service_manager find;
 binder_call(azenith, system_server)
 binder_call(system_server, azenith)
+binder_call(azenith, surfaceflinger)
 
 allow azenith self:capability { sys_nice kill sys_admin net_admin };
 allow azenith self:unix_stream_socket create_stream_socket_perms;
@@ -70,3 +72,12 @@ dontaudit azenith property_socket:sock_file write;
 # Device-mapper block devices (/sys/block/dm-*) scanned during I/O tuning
 allow azenith sysfs_dm:dir r_dir_perms;
 allow azenith sysfs_dm:file { rw_file_perms setattr };
+
+# Skip APEX loop and ZRAM block devices during /sys/block/* scan
+dontaudit azenith { sysfs_loop sysfs_zram }:dir { search open read getattr };
+dontaudit azenith { sysfs_loop sysfs_zram }:file { getattr open read write setattr };
+
+# UFS/virtual block parent directory (/sys/devices/.../block)
+allow azenith sysfs_devices_block:dir r_dir_perms;
+allow azenith sysfs_devices_block:file r_file_perms;
+dontaudit azenith sysfs_devices_block:file { write setattr };
