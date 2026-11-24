@@ -738,3 +738,6 @@ PRODUCT_COPY_FILES += \
 # AZenith integration
 PRODUCT_PACKAGES += \
     vendor.azenith-service
+
+# AZenith Game Space
+PRODUCT_PACKAGES += AZenithGameSpace
