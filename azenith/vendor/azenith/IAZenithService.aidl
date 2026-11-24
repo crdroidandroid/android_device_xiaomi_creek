@@ -1,7 +1,7 @@
 package vendor.azenith;
 
 interface IAZenithService {
-    const int VERSION = 3;
+    const int VERSION = 4;
 
     int getApiVersion();
     boolean setDisabled(boolean disabled);
@@ -11,4 +11,9 @@ interface IAZenithService {
     boolean removeGame(in String pkg);
     String getGames();
     String getState();
+    String getConfig(in String key);
+    String getGameConfigs();
+    boolean setGameConfig(in String pkg, in String configJson);
+    boolean removeGameConfig(in String pkg);
+    boolean rescanGames();
 }
