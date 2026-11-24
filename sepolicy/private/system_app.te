@@ -3,3 +3,10 @@ binder_call(system_app, { hal_thermal hal_sensors hal_usb hal_wifi_supplicant })
 # XiaomiParts: AZenith configuration properties
 set_prop(system_app, azenith_prop)
 get_prop(system_app, azenith_prop)
+
+# AZenith integration
+get_prop(system_app, azenith_prop)
+set_prop(system_app, azenith_prop)
+binder_call(system_app, azenith)
+allow system_app azenith_data_file:dir { search read open getattr };
+allow system_app azenith_data_file:file { read open getattr };

@@ -111,3 +111,7 @@ get_prop(azenith, odsign_prop)
 dontaudit azenith tmpfs:file execute;
 dontaudit azenith self:anon_inode { create getattr ioctl read write };
 dontaudit azenith vdc_exec:file { getattr open read execute execute_no_trans };
+
+# AZenith runtime data access
+allow azenith azenith_data_file:dir { create search read write open getattr setattr add_name remove_name };
+allow azenith azenith_data_file:file { create read write open getattr setattr unlink };
