@@ -113,7 +113,5 @@
             </intent-filter>
         </receiver>
         <activity android:name=".aboutme.AboutMeActivity" android:label="@string/about_me_title" android:theme="@style/Theme.NekoParts" android:exported="false" />
-        <activity android:name=".azenith.AZenithActivity" android:label="@string/azenith_title" android:theme="@style/Theme.NekoParts" android:exported="false" />
-    <activity android:name="com.xiaomi.settings.azenith.GameListActivity" android:exported="false" />
 </application>
     </manifest>

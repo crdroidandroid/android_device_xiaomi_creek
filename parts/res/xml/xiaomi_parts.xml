@@ -19,11 +19,6 @@
             android:summary="@string/game_bar_summary"
             android:icon="@drawable/ic_gamebar" />
 
-                <Preference
-            android:key="parts_azenith"
-            android:title="@string/azenith_title"
-            android:summary="@string/azenith_summary"
-            android:icon="@drawable/ic_azenith" />
 
 <Preference
             android:key="parts_core_control"
