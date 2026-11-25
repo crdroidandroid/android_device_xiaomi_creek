@@ -10,3 +10,7 @@ set_prop(system_app, azenith_prop)
 binder_call(system_app, azenith)
 allow system_app azenith_data_file:dir { search read open getattr };
 allow system_app azenith_data_file:file { read open getattr };
+
+# FileObserver on /data/system/AZenithInt/API (profile / auto mode live update)
+allow system_app azenith_data_file:dir { watch watch_reads };
+allow system_app azenith_data_file:file { watch watch_reads };

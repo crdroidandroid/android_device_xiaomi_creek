@@ -43,6 +43,7 @@ allow azenith apex_module_data_file:dir { getattr search };
 
 # Properties read by daemon & ART runtime
 get_prop(azenith, azenith_prop)
+set_prop(azenith, azenith_prop)
 get_prop(azenith, dalvik_config_prop)
 get_prop(azenith, dalvik_runtime_prop)
 dontaudit azenith default_prop:file { getattr map open read };
